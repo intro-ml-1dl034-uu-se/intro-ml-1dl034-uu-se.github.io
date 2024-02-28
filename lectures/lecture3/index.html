@@ -5,19 +5,19 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.123.3">
     <meta name="generator" content="Relearn 5.24.2+tip">
-    <meta name="description" content="Webpage for assignments and lecture slides for 1DL034.">
+    <meta name="description" content="">
     <meta name="author" content="Justin Pearson">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <meta name="twitter:description" content="Webpage for assignments and lecture slides for 1DL034.">
-    <meta property="og:title" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <meta property="og:description" content="Webpage for assignments and lecture slides for 1DL034.">
+    <meta name="twitter:title" content="Lecture 3: Probability and Naive Bayes Classification :: Introduction to ML 1D034 homepage.">
+    <meta name="twitter:description" content="">
+    <meta property="og:title" content="Lecture 3: Probability and Naive Bayes Classification :: Introduction to ML 1D034 homepage.">
+    <meta property="og:description" content="">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/index.html">
+    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture3/index.html">
     <meta property="og:site_name" content="Introduction to ML 1D034 homepage.">
-    <title>Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.</title>
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <link href="/index.print.html" rel="alternate" type="text/html" title="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
+    <title>Lecture 3: Probability and Naive Bayes Classification :: Introduction to ML 1D034 homepage.</title>
+    <link href="/lectures/lecture3/index.xml" rel="alternate" type="application/rss+xml" title="Lecture 3: Probability and Naive Bayes Classification :: Introduction to ML 1D034 homepage.">
+    <link href="/lectures/lecture3/index.print.html" rel="alternate" type="text/html" title="Lecture 3: Probability and Naive Bayes Classification :: Introduction to ML 1D034 homepage.">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1709150364" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709150364" rel="stylesheet"></noscript>
     <link href="/css/nucleus.css?1709150364" rel="stylesheet">
@@ -54,7 +54,7 @@
       window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
   </head>
-  <body class="mobile-support html" data-url="/index.html">
+  <body class="mobile-support html" data-url="/lectures/lecture3/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -65,10 +65,12 @@
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Introduction to Machine Learning 1DL034</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Introduction to Machine Learning 1DL034</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/lectures/index.html"><span itemprop="name">Lectures</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Lecture 3: Probability and Naive Bayes Classification</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lectures/lecture3/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -82,42 +84,58 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable home" tabindex="-1">
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <article class="home">
+          <article class="default">
             <header class="headline">
             </header>
-<h1 id="introduction-to-machine-learning-1dl034">Introduction to Machine Learning 1DL034</h1>
+<h1 id="lecture-3-probability-and-naive-bayes-classification">Lecture 3: Probability and Naive Bayes Classification</h1>
 
-<h2 id="overview">Overview</h2>
-<p>The structure of the course is as follows:</p>
+<h2 id="todays-topic">Today&rsquo;s Topic</h2>
+<p>Using Bayes&rsquo; theorem for machine learning. You should do some revision
+on the use of Bayes&rsquo; theorem in general. In this lecture you will look
+at how to use Bayes&rsquo; theorem to build a spam detector. One important
+idea to take away from this lecture is that there are a variety of
+ways implementing spam detection: in particular there are different
+feature models that you can use that give you different ways of
+calculating the relevant probabilities.   It is important that you
+understand the difference between the different ways of implementing
+spam detection.</p>
+<h2 id="reading-guide">Reading Guide</h2>
 <ul>
 <li>
-<p>A number  lectures. Information can be found on the page&rsquo;s
-menu or at
-<a href="/lectures/index.html">timetable</a>. This
-includes an overview of up and coming deadlines.</p>
+<p><a href="https://user.it.uu.se/~justin/Assets/Teaching/IntroML/Slides/lecture3.pdf" target="_blank">Lecture
+Slides</a></p>
 </li>
 <li>
-<p>4 short practical Python notebooks on how to use
-<a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn</a>,
-<a href="https://numpy.org/" target="_blank">numpy</a>, <a href="https://pandas.pydata.org/" target="_blank">pandas</a>,
-<a href="https://matplotlib.org/" target="_blank">Matplotlib</a> and other tools that are
-essential for real machine learning projects in Python.</p>
+<p><a href="https://www.dropbox.com/s/0cprdghmnzpck8h/Chapter2.pdf?dl=0" target="_blank">Chapter
+2</a>
+of <a href="http://themlbook.com/" target="_blank">The Hundred-Page Machine Learning Book</a>
+contains some background on probability and Bayes&rsquo; theorem.</p>
 </li>
 <li>
-<p>4 short theoretical Python notebooks on aspects of machine
-learning.</p>
+<p>My <a href="/lectures/lecture3/naive_bayes_spam/index.html">notes</a> on Naive Bayes for
+spam detection talk about the different ways of calculating the
+probabilities involved.</p>
+<ul>
+<li><a href="https://courses.cs.washington.edu/courses/cse312/18sp/lectures/naive-bayes/naivebayesnotes.pdf" target="_blank">Jonathan Lee&rsquo;s notes on Naive Bayes for Spam
+Filtering</a>
+notes are a bit more mathematical.</li>
+</ul>
 </li>
-<li>
-<p>An ongoing project.  You will be using a real data set, and the idea
-is that you try the techniques that you learn during the course on
-the project.  At the end of the project you are to write a short
-report on the methods you have tried and the results that got.</p>
-</li>
-<li>
-<p>An exam.</p>
-</li>
+</ul>
+<h2 id="what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</h2>
+<ul>
+<li>How do I use Bayes&rsquo; theorem?</li>
+<li>How do I use Bayes&rsquo; theorem to build a simple spam detector that
+only uses one word?</li>
+<li>What is independence assumption in the naive Bayes&rsquo; algorithm?</li>
+<li>What are the various models  estimating the probabilities for spam
+detection?</li>
+<li>What is Laplacian smoothing and how does it work in the context of
+spam detection?</li>
+<li>When do you need to use logarithms to calculate the relevant
+probabilities, and how do you use them?</li>
 </ul>
 
             <footer class="footline">
@@ -224,10 +242,10 @@ report on the methods you have tried and the results that got.</p>
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-topics">
           <ul class="enlarge morespace collapsible-menu">
-          <li data-nav-id="/lectures/index.html" class=""><a class="padding" href="/lectures/index.html">Lectures</a><ul id="R-subsections-d620b825576c756a29a0053db8c4ae4a" class="morespace collapsible-menu">
+          <li data-nav-id="/lectures/index.html" class="parent "><a class="padding" href="/lectures/index.html">Lectures</a><ul id="R-subsections-d620b825576c756a29a0053db8c4ae4a" class="morespace collapsible-menu">
           <li data-nav-id="/lectures/lecture1/index.html" class=""><a class="padding" href="/lectures/lecture1/index.html">Lecture 1</a></li>
           <li data-nav-id="/lectures/lecture2/index.html" class=""><a class="padding" href="/lectures/lecture2/index.html">Lecture 2</a></li>
-          <li data-nav-id="/lectures/lecture3/index.html" class="alwaysopen"><a class="padding" href="/lectures/lecture3/index.html">Lecture 3</a><ul id="R-subsections-b9b1152126e80a6461280b588799b226" class="morespace collapsible-menu">
+          <li data-nav-id="/lectures/lecture3/index.html" class="active parent alwaysopen"><a class="padding" href="/lectures/lecture3/index.html">Lecture 3</a><ul id="R-subsections-b9b1152126e80a6461280b588799b226" class="morespace collapsible-menu">
           <li data-nav-id="/lectures/lecture3/naive_bayes_spam/index.html" class=""><a class="padding" href="/lectures/lecture3/naive_bayes_spam/index.html">Naive Bayes</a></li></ul></li>
           <li data-nav-id="/lectures/lecture4/index.html" class=""><a class="padding" href="/lectures/lecture4/index.html">Lecture 4</a></li>
           <li data-nav-id="/lectures/lecture5/index.html" class=""><a class="padding" href="/lectures/lecture5/index.html">Lecture 5</a></li>
@@ -258,7 +276,7 @@ report on the methods you have tried and the results that got.</p>
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">Language</label>
                     <select id="R-select-language" onchange="location = baseUri + this.value;">
-                      <option id="R-en" value="/index.html" lang="en" selected></option>
+                      <option id="R-en" value="/lectures/lecture3/index.html" lang="en" selected></option>
                     </select>
                   </div>
                   <div class="clear"></div>

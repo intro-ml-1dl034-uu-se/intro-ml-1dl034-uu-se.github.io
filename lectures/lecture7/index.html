@@ -5,19 +5,22 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.123.3">
     <meta name="generator" content="Relearn 5.24.2+tip">
-    <meta name="description" content="Webpage for assignments and lecture slides for 1DL034.">
+    <meta name="description" content="">
     <meta name="author" content="Justin Pearson">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <meta name="twitter:description" content="Webpage for assignments and lecture slides for 1DL034.">
-    <meta property="og:title" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <meta property="og:description" content="Webpage for assignments and lecture slides for 1DL034.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/index.html">
+    <meta name="twitter:title" content="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
+    <meta name="twitter:description" content="Today&rsquo;s Topics In this segment you are looking at some unsupervised algorithms, as well as one supervised learning method (K-nearest neighbours) The main unsupervised algorithms are Hierarchical clustering, K-means clustering and DBSCAN. It is important not to get K-nearest neighbours and K-means clustering confused.
+The K-means algorithm works by gradient descent. Unlike a lot of the algorithms that we have been looking at, K-means often suffers from the problem of many local minima.">
+    <meta property="og:title" content="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
+    <meta property="og:description" content="Today&rsquo;s Topics In this segment you are looking at some unsupervised algorithms, as well as one supervised learning method (K-nearest neighbours) The main unsupervised algorithms are Hierarchical clustering, K-means clustering and DBSCAN. It is important not to get K-nearest neighbours and K-means clustering confused.
+The K-means algorithm works by gradient descent. Unlike a lot of the algorithms that we have been looking at, K-means often suffers from the problem of many local minima.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture7/index.html">
+    <meta property="article:section" content="Lectures :: Introduction to ML 1D034 homepage.">
     <meta property="og:site_name" content="Introduction to ML 1D034 homepage.">
-    <title>Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.</title>
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <link href="/index.print.html" rel="alternate" type="text/html" title="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
+    <title>Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.</title>
+    <link href="/lectures/lecture7/index.xml" rel="alternate" type="application/rss+xml" title="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
+    <link href="/lectures/lecture7/index.print.html" rel="alternate" type="text/html" title="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1709150364" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709150364" rel="stylesheet"></noscript>
     <link href="/css/nucleus.css?1709150364" rel="stylesheet">
@@ -54,7 +57,7 @@
       window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
   </head>
-  <body class="mobile-support html" data-url="/index.html">
+  <body class="mobile-support html" data-url="/lectures/lecture7/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -63,12 +66,36 @@
           <div class="topbar-area topbar-area-start" data-area="start">
             <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
             </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper"><nav class="TableOfContents">
+  <ul>
+    <li><a href="#todays-topics">Today&rsquo;s Topics</a></li>
+    <li><a href="#slides">Slides</a></li>
+    <li><a href="#reading-guide">Reading Guide</a>
+      <ul>
+        <li><a href="#k-means-clustering">K-Means Clustering</a></li>
+        <li><a href="#k-nearest-neighbours">K-Nearest Neighbours</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Introduction to Machine Learning 1DL034</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Introduction to Machine Learning 1DL034</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/lectures/index.html"><span itemprop="name">Lectures</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Lecture 7: Clustering and Nearest Neighbours</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lectures/lecture7/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lectures/lecture6/index.html" title="Lecture 6: Cross Validation and Feature Engineering (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lectures/lecture8/index.html" title="Lecture 8: Decision Trees (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -82,42 +109,71 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable home" tabindex="-1">
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <article class="home">
+          <article class="default">
             <header class="headline">
             </header>
-<h1 id="introduction-to-machine-learning-1dl034">Introduction to Machine Learning 1DL034</h1>
+<h1 id="lecture-7-clustering-and-nearest-neighbours">Lecture 7: Clustering and Nearest Neighbours</h1>
 
-<h2 id="overview">Overview</h2>
-<p>The structure of the course is as follows:</p>
+<h2 id="todays-topics">Today&rsquo;s Topics</h2>
+<p>In this segment you are looking at some unsupervised algorithms, as
+well as one supervised learning method (K-nearest neighbours)  The
+main unsupervised algorithms are Hierarchical clustering,  K-means
+clustering and DBSCAN. It is important not to get K-nearest neighbours
+and K-means clustering confused.</p>
+<p>The K-means algorithm works by gradient descent. Unlike a lot of the
+algorithms that we have been looking at, K-means often suffers from
+the problem of many local minima. In Andrew Ng&rsquo;s lectures you will
+meet various ways of dealing with local minima.</p>
+<p>If you have taken <a href="https://ad2-uu-se.github.io/" target="_blank">Algorithms and Data Structures II</a>(<a href="https://www.uu.se/en/admissions/master/selma/kursplan/?kKod=1DL231" target="_blank">1DL231</a>)
+or AD3
+(<a href="https://www.uu.se/en/admissions/master/selma/kursplan/?kKod=1DL481" target="_blank">1DL481</a>),
+then you will have met the concept of <a href="https://ad2-uu-se.github.io/lectures/lectures12-13/index.html" target="_blank">NP-hardness</a>. K-means clustering is NP-hard
+(see the reference below). This means that the problem is not easy to
+solve. If you could guarantee that there would only be one global
+minimum then gradient descent would be an efficient algorithm. This
+implies that there will always often be local minima in K-means
+clustering.</p>
+<h2 id="slides">Slides</h2>
+<p>I used these
+<a href="http://user.it.uu.se/~justin/Assets/Teaching/IntroML/Slides/lecture7.pdf" target="_blank">slides</a>
+in the lecture.</p>
+<h2 id="reading-guide">Reading Guide</h2>
+<h3 id="k-means-clustering">K-Means Clustering</h3>
 <ul>
-<li>
-<p>A number  lectures. Information can be found on the page&rsquo;s
-menu or at
-<a href="/lectures/index.html">timetable</a>. This
-includes an overview of up and coming deadlines.</p>
-</li>
-<li>
-<p>4 short practical Python notebooks on how to use
-<a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn</a>,
-<a href="https://numpy.org/" target="_blank">numpy</a>, <a href="https://pandas.pydata.org/" target="_blank">pandas</a>,
-<a href="https://matplotlib.org/" target="_blank">Matplotlib</a> and other tools that are
-essential for real machine learning projects in Python.</p>
-</li>
-<li>
-<p>4 short theoretical Python notebooks on aspects of machine
-learning.</p>
-</li>
-<li>
-<p>An ongoing project.  You will be using a real data set, and the idea
-is that you try the techniques that you learn during the course on
-the project.  At the end of the project you are to write a short
-report on the methods you have tried and the results that got.</p>
-</li>
-<li>
-<p>An exam.</p>
-</li>
+<li><a href="http://themlbook.com/" target="_blank">Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" target="_blank">Chapter
+3</a>
+section 3.5 and <a href="https://www.dropbox.com/s/y9a7b0hzmuksqar/Chapter9.pdf?dl=0" target="_blank">Chapter
+9</a> all
+of 9.2</li>
+<li>Chapter 6 (6.1 and 6.2) of <a href="https://tinyurl.com/y2obtldw" target="_blank">A First Course in Machine
+Learning</a>. The link takes you to the
+electronic copy in the library.</li>
+<li>This is only for reference: <a href="https://cseweb.ucsd.edu/~avattani/papers/kmeans_hardness.pdf" target="_blank">NP Hardness of K-means
+clustering</a>. You
+don&rsquo;t need to understand the proof, although you should be aware of
+its implications. No greedy/gradient descent algorithm for K-means
+is going to be exact.</li>
+</ul>
+<h3 id="k-nearest-neighbours">K-Nearest Neighbours</h3>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm" target="_blank">Wikipedia page on K-Nearest
+Neighbours</a>
+is a good starting point.</li>
+</ul>
+<h2 id="what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</h2>
+<ul>
+<li>What are some of the applications of clustering?</li>
+<li>What is hierarchical clustering and what algorithms are there?</li>
+<li>How does the K-means algorithm work? What is the cost function?</li>
+<li>What is a local optima and why is it a problem with the K-means
+algorithm?</li>
+<li>What are some approaches to choosing the number of clusters in
+K-means?</li>
+<li>How does the K-nearest neighbour algorithm work and what are some of
+its applications?</li>
+<li>What is DBSCAN and how does it work?</li>
 </ul>
 
             <footer class="footline">
@@ -224,7 +280,7 @@ report on the methods you have tried and the results that got.</p>
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-topics">
           <ul class="enlarge morespace collapsible-menu">
-          <li data-nav-id="/lectures/index.html" class=""><a class="padding" href="/lectures/index.html">Lectures</a><ul id="R-subsections-d620b825576c756a29a0053db8c4ae4a" class="morespace collapsible-menu">
+          <li data-nav-id="/lectures/index.html" class="parent "><a class="padding" href="/lectures/index.html">Lectures</a><ul id="R-subsections-d620b825576c756a29a0053db8c4ae4a" class="morespace collapsible-menu">
           <li data-nav-id="/lectures/lecture1/index.html" class=""><a class="padding" href="/lectures/lecture1/index.html">Lecture 1</a></li>
           <li data-nav-id="/lectures/lecture2/index.html" class=""><a class="padding" href="/lectures/lecture2/index.html">Lecture 2</a></li>
           <li data-nav-id="/lectures/lecture3/index.html" class="alwaysopen"><a class="padding" href="/lectures/lecture3/index.html">Lecture 3</a><ul id="R-subsections-b9b1152126e80a6461280b588799b226" class="morespace collapsible-menu">
@@ -232,7 +288,7 @@ report on the methods you have tried and the results that got.</p>
           <li data-nav-id="/lectures/lecture4/index.html" class=""><a class="padding" href="/lectures/lecture4/index.html">Lecture 4</a></li>
           <li data-nav-id="/lectures/lecture5/index.html" class=""><a class="padding" href="/lectures/lecture5/index.html">Lecture 5</a></li>
           <li data-nav-id="/lectures/lecture6/index.html" class=""><a class="padding" href="/lectures/lecture6/index.html">Lecture 6</a></li>
-          <li data-nav-id="/lectures/lecture7/index.html" class=""><a class="padding" href="/lectures/lecture7/index.html">Lecture 7</a></li>
+          <li data-nav-id="/lectures/lecture7/index.html" class="active"><a class="padding" href="/lectures/lecture7/index.html">Lecture 7</a></li>
           <li data-nav-id="/lectures/lecture8/index.html" class=""><a class="padding" href="/lectures/lecture8/index.html">Lecture 8</a></li>
           <li data-nav-id="/lectures/lecture9/index.html" class=""><a class="padding" href="/lectures/lecture9/index.html">Lecture 9</a></li>
           <li data-nav-id="/lectures/lecture10/index.html" class=""><a class="padding" href="/lectures/lecture10/index.html">Lecture 10</a></li></ul></li>
@@ -258,7 +314,7 @@ report on the methods you have tried and the results that got.</p>
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">Language</label>
                     <select id="R-select-language" onchange="location = baseUri + this.value;">
-                      <option id="R-en" value="/index.html" lang="en" selected></option>
+                      <option id="R-en" value="/lectures/lecture7/index.html" lang="en" selected></option>
                     </select>
                   </div>
                   <div class="clear"></div>

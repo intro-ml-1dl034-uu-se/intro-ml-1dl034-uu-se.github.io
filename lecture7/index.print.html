@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.3">
+    <meta name="generator" content="Relearn 5.24.2+tip">
+    <meta name="description" content="">
+    <meta name="author" content="Justin Pearson">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
+    <meta name="twitter:description" content="Lecture plan and link to slides.">
+    <meta property="og:title" content="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
+    <meta property="og:description" content="Lecture plan and link to slides.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost:1313/lecture7/index.html">
+    <meta property="article:section" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
+    <meta property="article:published_time" content="2020-11-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-11-11T00:00:00+00:00">
+    <meta property="og:site_name" content="Introduction to ML 1D034 homepage.">
+    <title>Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.</title>
+    <link href="http://localhost:1313/lecture7/index.html" rel="canonical" type="text/html" title="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
+    <link href="/lecture7/index.xml" rel="alternate" type="application/rss+xml" title="Lecture 7: Clustering and Nearest Neighbours :: Introduction to ML 1D034 homepage.">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="/css/fontawesome-all.min.css?1709145504" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709145504" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1709145504" rel="stylesheet">
+    <link href="/css/auto-complete.css?1709145504" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1709145504" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1709145504" rel="stylesheet">
+    <link href="/css/fonts.css?1709145504" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1709145504" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1709145504" rel="stylesheet">
+    <link href="/css/theme-blue.css?1709145504" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1709145504" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/variant.css?1709145504" rel="stylesheet">
+    <link href="/css/print.css?1709145504" rel="stylesheet" media="print">
+    <link href="/css/format-print.css?1709145504" rel="stylesheet">
+    <link href="/css/ie.css?1709145504" rel="stylesheet">
+    <script src="/js/url.js?1709145504"></script>
+    <script src="/js/variant.js?1709145504"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      window.index_js_url="/index.search.js";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      window.relearn = window.relearn || {};
+      window.relearn.baseUriFull='http:\/\/localhost:1313/';
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'blue' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support print" data-url="/lecture7/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Introduction to Machine Learning 1DL034</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Lecture 7: Clustering and Nearest Neighbours</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+<h1 id="lecture-7-clustering-and-nearest-neighbours">Lecture 7: Clustering and Nearest Neighbours</h1>
+
+<h2 id="todays-topics">Today&rsquo;s Topics</h2>
+<p>In this segment you are looking at some unsupervised algorithms, as
+well as one supervised learning method (K-nearest neighbours)  The
+main unsupervised algorithms are Hierarchical clustering,  K-means
+clustering and DBSCAN. It is important not to get K-nearest neighbours
+and K-means clustering confused.</p>
+<p>The K-means algorithm works by gradient descent. Unlike a lot of the
+algorithms that we have been looking at, K-means often suffers from
+the problem of many local minima. In Andrew Ng&rsquo;s lectures you will
+meet various ways of dealing with local minima.</p>
+<p>If you have taken <a href="">Algorithms and Data Structures II</a>(<a href="https://www.uu.se/en/admissions/master/selma/kursplan/?kKod=1DL231" target="_blank">1DL231</a>)
+or AD3
+(<a href="https://www.uu.se/en/admissions/master/selma/kursplan/?kKod=1DL481" target="_blank">1DL481</a>),
+then you will have met the concept of <a href="">NP-hardness</a>. K-means clustering is NP-hard
+(see the reference below). This means that the problem is not easy to
+solve. If you could guarantee that there would only be one global
+minimum then gradient descent would be an efficient algorithm. This
+implies that there will always often be local minima in K-means
+clustering.</p>
+<h2 id="slides">Slides</h2>
+<p>I used these
+<a href="http://user.it.uu.se/~justin/Assets/Teaching/IntroML/Slides/lecture7.pdf" target="_blank">slides</a>
+in the lecture.</p>
+<h2 id="reading-guide">Reading Guide</h2>
+<h3 id="k-means-clustering">K-Means Clustering</h3>
+<ul>
+<li><a href="http://themlbook.com/" target="_blank">Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" target="_blank">Chapter
+3</a>
+section 3.5 and <a href="https://www.dropbox.com/s/y9a7b0hzmuksqar/Chapter9.pdf?dl=0" target="_blank">Chapter
+9</a> all
+of 9.2</li>
+<li>Chapter 6 (6.1 and 6.2) of <a href="https://tinyurl.com/y2obtldw" target="_blank">A First Course in Machine
+Learning</a>. The link takes you to the
+electronic copy in the library.</li>
+<li>This is only for reference: <a href="https://cseweb.ucsd.edu/~avattani/papers/kmeans_hardness.pdf" target="_blank">NP Hardness of K-means
+clustering</a>. You
+don&rsquo;t need to understand the proof, although you should be aware of
+its implications. No greedy/gradient descent algorithm for K-means
+is going to be exact.</li>
+</ul>
+<h3 id="k-nearest-neighbours">K-Nearest Neighbours</h3>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm" target="_blank">Wikipedia page on K-Nearest
+Neighbours</a>
+is a good starting point.</li>
+</ul>
+<h2 id="what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</h2>
+<ul>
+<li>What are some of the applications of clustering?</li>
+<li>What is hierarchical clustering and what algorithms are there?</li>
+<li>How does the K-means algorithm work? What is the cost function?</li>
+<li>What is a local optima and why is it a problem with the K-means
+algorithm?</li>
+<li>What are some approaches to choosing the number of clusters in
+K-means?</li>
+<li>How does the K-nearest neighbour algorithm work and what are some of
+its applications?</li>
+<li>What is DBSCAN and how does it work?</li>
+</ul>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="/js/clipboard.min.js?1709145504" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1709145504" defer></script>
+    <script src="/js/theme.js?1709145504" defer></script>
+  </body>
+</html>

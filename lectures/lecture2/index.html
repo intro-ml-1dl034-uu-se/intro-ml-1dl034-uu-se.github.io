@@ -5,19 +5,22 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.123.3">
     <meta name="generator" content="Relearn 5.24.2+tip">
-    <meta name="description" content="Webpage for assignments and lecture slides for 1DL034.">
+    <meta name="description" content="">
     <meta name="author" content="Justin Pearson">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <meta name="twitter:description" content="Webpage for assignments and lecture slides for 1DL034.">
-    <meta property="og:title" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <meta property="og:description" content="Webpage for assignments and lecture slides for 1DL034.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/index.html">
+    <meta name="twitter:title" content="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
+    <meta name="twitter:description" content="Today&rsquo;s Topics Linear Regression Linear Regression as a machine learning algorithm. Machine learning algorithms and hypothesises. In short a machine learning find the best hypothesis that explains that data. A cost function (or an error function, or a loss function) measure how far way a hypothesis is from explaining the data: the smaller the cost, the better the hypothesis.
+Ideally you want an algorithm takes the training data and gives you the hypothesis that with the smallest cost value.">
+    <meta property="og:title" content="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
+    <meta property="og:description" content="Today&rsquo;s Topics Linear Regression Linear Regression as a machine learning algorithm. Machine learning algorithms and hypothesises. In short a machine learning find the best hypothesis that explains that data. A cost function (or an error function, or a loss function) measure how far way a hypothesis is from explaining the data: the smaller the cost, the better the hypothesis.
+Ideally you want an algorithm takes the training data and gives you the hypothesis that with the smallest cost value.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture2/index.html">
+    <meta property="article:section" content="Lectures :: Introduction to ML 1D034 homepage.">
     <meta property="og:site_name" content="Introduction to ML 1D034 homepage.">
-    <title>Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.</title>
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <link href="/index.print.html" rel="alternate" type="text/html" title="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
+    <title>Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.</title>
+    <link href="/lectures/lecture2/index.xml" rel="alternate" type="application/rss+xml" title="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
+    <link href="/lectures/lecture2/index.print.html" rel="alternate" type="text/html" title="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1709150364" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709150364" rel="stylesheet"></noscript>
     <link href="/css/nucleus.css?1709150364" rel="stylesheet">
@@ -54,7 +57,7 @@
       window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
   </head>
-  <body class="mobile-support html" data-url="/index.html">
+  <body class="mobile-support html" data-url="/lectures/lecture2/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -65,10 +68,12 @@
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Introduction to Machine Learning 1DL034</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Introduction to Machine Learning 1DL034</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/lectures/index.html"><span itemprop="name">Lectures</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Lecture 2: Linear Regression as Machine Learning</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lectures/lecture2/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -82,42 +87,68 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable home" tabindex="-1">
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <article class="home">
+          <article class="default">
             <header class="headline">
             </header>
-<h1 id="introduction-to-machine-learning-1dl034">Introduction to Machine Learning 1DL034</h1>
+<h1 id="lecture-2-linear-regression-as-machine-learning">Lecture 2: Linear Regression as Machine Learning</h1>
 
-<h2 id="overview">Overview</h2>
-<p>The structure of the course is as follows:</p>
+<h2 id="todays-topics">Today&rsquo;s Topics</h2>
+<h3 id="linear-regression">Linear Regression</h3>
+<p>Linear Regression as a machine learning algorithm. Machine learning
+algorithms and hypothesises. In short a machine learning find the best
+hypothesis that explains that data. A cost function (or an error
+function, or a loss function) measure how far way a hypothesis is from
+explaining the data: the smaller the cost, the better the hypothesis.</p>
+<p>Ideally you want an algorithm takes the training data and gives you
+the hypothesis that with the smallest cost value. With linear
+regression this is possible (using linear algebra), but in general it
+is not possible.</p>
+<p>If you have been reading about neural networks, then in a neural
+network the weight roughly corresponds to the set of all possible
+hypothesis.</p>
+<h3 id="training-and-test-sets">Training and Test Sets</h3>
+<p>As the course moves along we will learn more about best practices with
+machine learning. The first important idea is that you should split
+your data into a test set and a training set. If do not do this then
+there is a possibility that you will over fit to your data set, and
+when you meet new examples your machine learning system will not
+perform that well.  It is also important to keep in mind that when you
+are using gradient descent to find the best hypothesis you use the
+training set, but when you are evaluating the performance of the
+learning algorithm you should use the test set. Later on when we look
+at cross validation we will look at more advance ways to divide up
+your data.</p>
+<h2 id="links-to-slides">Links to Slides</h2>
 <ul>
-<li>
-<p>A number  lectures. Information can be found on the page&rsquo;s
-menu or at
-<a href="/lectures/index.html">timetable</a>. This
-includes an overview of up and coming deadlines.</p>
-</li>
-<li>
-<p>4 short practical Python notebooks on how to use
-<a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn</a>,
-<a href="https://numpy.org/" target="_blank">numpy</a>, <a href="https://pandas.pydata.org/" target="_blank">pandas</a>,
-<a href="https://matplotlib.org/" target="_blank">Matplotlib</a> and other tools that are
-essential for real machine learning projects in Python.</p>
-</li>
-<li>
-<p>4 short theoretical Python notebooks on aspects of machine
-learning.</p>
-</li>
-<li>
-<p>An ongoing project.  You will be using a real data set, and the idea
-is that you try the techniques that you learn during the course on
-the project.  At the end of the project you are to write a short
-report on the methods you have tried and the results that got.</p>
-</li>
-<li>
-<p>An exam.</p>
-</li>
+<li>The slides can be found
+<a href="https://user.it.uu.se/~justin/Assets/Teaching/IntroML/Slides/lecture2.pdf" target="_blank">here.</a>.</li>
+</ul>
+<h2 id="reading-guide">Reading Guide</h2>
+<ul>
+<li><a href="http://themlbook.com/" target="_blank">Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" target="_blank">Chapter
+3</a>
+section 3.1 and
+<a href="https://www.dropbox.com/s/xpd5x6p6jte3th5/Chapter4.pdf?dl=0" target="_blank">Chapter
+4</a>.</li>
+</ul>
+<h2 id="what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</h2>
+<ul>
+<li>How does linear regression work with one variable?</li>
+<li>How does linear regression work with many variables?</li>
+<li>What is a hypothesis in a machine learning algorithm?</li>
+<li>What is a cost function?  Note that in machine learning there is no
+standard terminology. This is because machine learning comes from
+many different disciplines. Other names for the cost function are
+the Error function and the loss function.</li>
+<li>What is the goal of a machine learning algorithm with the hypothesis
+and the cost function? What does the cost function measure? Why is a
+low value of the cost function desirable?</li>
+<li>How does gradient descent work for linear regression? Can you derive
+it from first principles?</li>
+<li>Why is it necessary to split the data up into a training and a test
+set?</li>
 </ul>
 
             <footer class="footline">
@@ -224,9 +255,9 @@ report on the methods you have tried and the results that got.</p>
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-topics">
           <ul class="enlarge morespace collapsible-menu">
-          <li data-nav-id="/lectures/index.html" class=""><a class="padding" href="/lectures/index.html">Lectures</a><ul id="R-subsections-d620b825576c756a29a0053db8c4ae4a" class="morespace collapsible-menu">
+          <li data-nav-id="/lectures/index.html" class="parent "><a class="padding" href="/lectures/index.html">Lectures</a><ul id="R-subsections-d620b825576c756a29a0053db8c4ae4a" class="morespace collapsible-menu">
           <li data-nav-id="/lectures/lecture1/index.html" class=""><a class="padding" href="/lectures/lecture1/index.html">Lecture 1</a></li>
-          <li data-nav-id="/lectures/lecture2/index.html" class=""><a class="padding" href="/lectures/lecture2/index.html">Lecture 2</a></li>
+          <li data-nav-id="/lectures/lecture2/index.html" class="active"><a class="padding" href="/lectures/lecture2/index.html">Lecture 2</a></li>
           <li data-nav-id="/lectures/lecture3/index.html" class="alwaysopen"><a class="padding" href="/lectures/lecture3/index.html">Lecture 3</a><ul id="R-subsections-b9b1152126e80a6461280b588799b226" class="morespace collapsible-menu">
           <li data-nav-id="/lectures/lecture3/naive_bayes_spam/index.html" class=""><a class="padding" href="/lectures/lecture3/naive_bayes_spam/index.html">Naive Bayes</a></li></ul></li>
           <li data-nav-id="/lectures/lecture4/index.html" class=""><a class="padding" href="/lectures/lecture4/index.html">Lecture 4</a></li>
@@ -258,7 +289,7 @@ report on the methods you have tried and the results that got.</p>
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">Language</label>
                     <select id="R-select-language" onchange="location = baseUri + this.value;">
-                      <option id="R-en" value="/index.html" lang="en" selected></option>
+                      <option id="R-en" value="/lectures/lecture2/index.html" lang="en" selected></option>
                     </select>
                   </div>
                   <div class="clear"></div>
