@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.123.3">
@@ -8,33 +8,35 @@
     <meta name="description" content="">
     <meta name="author" content="Justin Pearson">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
-    <meta name="twitter:description" content="Lecture plan and link to slides.">
-    <meta property="og:title" content="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
-    <meta property="og:description" content="Lecture plan and link to slides.">
+    <meta name="twitter:title" content="Using Anaconda with Windows. :: Introduction to ML 1D034 homepage.">
+    <meta name="twitter:description" content="Disclaimer These instructions come with no warranty. I do not use Windows. If you have any questions about Windows then I cannot answer them. If you have any constructive comments the please contact me.
+Anaconda is a distribution of Python and R that includes many popular Data Science packages, such as Jupyter Notebook, NumPy, pandas, and scikit-learn. For numerous reasons, it is suggested for working with Jupyter Notebook.
+Ease of installation: Anaconda comes with a built-in package manager called conda, which makes it easy to install and manage packages, including Jupyter Notebook.">
+    <meta property="og:title" content="Using Anaconda with Windows. :: Introduction to ML 1D034 homepage.">
+    <meta property="og:description" content="Disclaimer These instructions come with no warranty. I do not use Windows. If you have any questions about Windows then I cannot answer them. If you have any constructive comments the please contact me.
+Anaconda is a distribution of Python and R that includes many popular Data Science packages, such as Jupyter Notebook, NumPy, pandas, and scikit-learn. For numerous reasons, it is suggested for working with Jupyter Notebook.
+Ease of installation: Anaconda comes with a built-in package manager called conda, which makes it easy to install and manage packages, including Jupyter Notebook.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://localhost:1313/lecture2/index.html">
-    <meta property="article:section" content="Introduction to Machine Learning 1DL034 :: Introduction to ML 1D034 homepage.">
-    <meta property="article:published_time" content="2020-11-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2020-11-11T00:00:00+00:00">
+    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/resources/anaconda_instructions/index.html">
+    <meta property="article:section" content="Recommended Textbooks and Links :: Introduction to ML 1D034 homepage.">
     <meta property="og:site_name" content="Introduction to ML 1D034 homepage.">
-    <title>Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.</title>
-    <link href="/lecture2/index.xml" rel="alternate" type="application/rss+xml" title="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
-    <link href="/lecture2/index.print.html" rel="alternate" type="text/html" title="Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
+    <title>Using Anaconda with Windows. :: Introduction to ML 1D034 homepage.</title>
+    <link href="/resources/anaconda_instructions/index.xml" rel="alternate" type="application/rss+xml" title="Using Anaconda with Windows. :: Introduction to ML 1D034 homepage.">
+    <link href="/resources/anaconda_instructions/index.print.html" rel="alternate" type="text/html" title="Using Anaconda with Windows. :: Introduction to ML 1D034 homepage.">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1709145504" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709145504" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1709145504" rel="stylesheet">
-    <link href="/css/auto-complete.css?1709145504" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1709145504" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1709145504" rel="stylesheet">
-    <link href="/css/fonts.css?1709145504" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1709145504" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1709145504" rel="stylesheet">
-    <link href="/css/theme-blue.css?1709145504" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1709145504" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/variant.css?1709145504" rel="stylesheet">
-    <link href="/css/print.css?1709145504" rel="stylesheet" media="print">
-    <link href="/css/ie.css?1709145504" rel="stylesheet">
-    <script src="/js/url.js?1709145504"></script>
-    <script src="/js/variant.js?1709145504"></script>
+    <link href="/css/fontawesome-all.min.css?1709192834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709192834" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1709192834" rel="stylesheet">
+    <link href="/css/auto-complete.css?1709192834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1709192834" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1709192834" rel="stylesheet">
+    <link href="/css/fonts.css?1709192834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1709192834" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1709192834" rel="stylesheet">
+    <link href="/css/theme-blue.css?1709192834" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1709192834" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/variant.css?1709192834" rel="stylesheet">
+    <link href="/css/print.css?1709192834" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1709192834" rel="stylesheet">
+    <script src="/js/url.js?1709192834"></script>
+    <script src="/js/variant.js?1709192834"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -42,7 +44,7 @@
       var root_url="/";
       var baseUri=root_url.replace(/\/$/, '');
       window.relearn = window.relearn || {};
-      window.relearn.baseUriFull='http:\/\/localhost:1313/';
+      window.relearn.baseUriFull='https:\/\/intro-ml-1dl034-uu-se.github.io/';
       // variant stuff
       window.relearn.themeVariantModifier='';
       window.variants && variants.init( [ 'blue' ] );
@@ -57,7 +59,7 @@
       window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
   </head>
-  <body class="mobile-support html" data-url="/lecture2/index.html">
+  <body class="mobile-support html" data-url="/resources/anaconda_instructions/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -68,33 +70,22 @@
             </div>
             <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper"><nav class="TableOfContents">
-  <ul>
-    <li><a href="#todays-topics">Today&rsquo;s Topics</a>
-      <ul>
-        <li><a href="#linear-regression">Linear Regression</a></li>
-        <li><a href="#training-and-test-sets">Training and Test Sets</a></li>
-      </ul>
-    </li>
-    <li><a href="#links-to-slides">Links to Slides</a></li>
-    <li><a href="#reading-guide">Reading Guide</a></li>
-    <li><a href="#what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</a></li>
-  </ul>
-</nav>
+                <div class="topbar-content-wrapper"> 
                 </div>
               </div>
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Introduction to Machine Learning 1DL034</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Lecture 2: Linear Regression as Machine Learning</span><meta itemprop="position" content="2"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/resources/index.html"><span itemprop="name">Recommended Textbooks and Links</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Using Anaconda with Windows.</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lecture2/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/resources/anaconda_instructions/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
             </div>
-            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lecture1/index.html" title="Lecture 1: Introduction and Overview of the Course (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/resources/python_notebooks_ml/index.html" title="Setting up Python notebooks locally for Machine Learning (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/lecture3/index.html" title="Lecture 3: Probability and Naive Bayes Classification (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -113,64 +104,135 @@
           <article class="default">
             <header class="headline">
             </header>
-<h1 id="lecture-2-linear-regression-as-machine-learning">Lecture 2: Linear Regression as Machine Learning</h1>
+<h1 id="using-anaconda-with-windows">Using Anaconda with Windows.</h1>
 
-<h2 id="todays-topics">Today&rsquo;s Topics</h2>
-<h3 id="linear-regression">Linear Regression</h3>
-<p>Linear Regression as a machine learning algorithm. Machine learning
-algorithms and hypothesises. In short a machine learning find the best
-hypothesis that explains that data. A cost function (or an error
-function, or a loss function) measure how far way a hypothesis is from
-explaining the data: the smaller the cost, the better the hypothesis.</p>
-<p>Ideally you want an algorithm takes the training data and gives you
-the hypothesis that with the smallest cost value. With linear
-regression this is possible (using linear algebra), but in general it
-is not possible.</p>
-<p>If you have been reading about neural networks, then in a neural
-network the weight roughly corresponds to the set of all possible
-hypothesis.</p>
-<h3 id="training-and-test-sets">Training and Test Sets</h3>
-<p>As the course moves along we will learn more about best practices with
-machine learning. The first important idea is that you should split
-your data into a test set and a training set. If do not do this then
-there is a possibility that you will over fit to your data set, and
-when you meet new examples your machine learning system will not
-perform that well.  It is also important to keep in mind that when you
-are using gradient descent to find the best hypothesis you use the
-training set, but when you are evaluating the performance of the
-learning algorithm you should use the test set. Later on when we look
-at cross validation we will look at more advance ways to divide up
-your data.</p>
-<h2 id="links-to-slides">Links to Slides</h2>
-<ul>
-<li>The slides can be found
-<a href="https://user.it.uu.se/~justin/Assets/Teaching/IntroML/Slides/lecture2.pdf" target="_blank">here.</a>.</li>
-</ul>
-<h2 id="reading-guide">Reading Guide</h2>
-<ul>
-<li><a href="http://themlbook.com/" target="_blank">Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" target="_blank">Chapter
-3</a>
-section 3.1 and
-<a href="https://www.dropbox.com/s/xpd5x6p6jte3th5/Chapter4.pdf?dl=0" target="_blank">Chapter
-4</a>.</li>
-</ul>
-<h2 id="what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</h2>
-<ul>
-<li>How does linear regression work with one variable?</li>
-<li>How does linear regression work with many variables?</li>
-<li>What is a hypothesis in a machine learning algorithm?</li>
-<li>What is a cost function?  Note that in machine learning there is no
-standard terminology. This is because machine learning comes from
-many different disciplines. Other names for the cost function are
-the Error function and the loss function.</li>
-<li>What is the goal of a machine learning algorithm with the hypothesis
-and the cost function? What does the cost function measure? Why is a
-low value of the cost function desirable?</li>
-<li>How does gradient descent work for linear regression? Can you derive
-it from first principles?</li>
-<li>Why is it necessary to split the data up into a training and a test
-set?</li>
-</ul>
+
+<div class="box notices cstyle warning">
+  <div class="box-label"><i class="fa-fw fas fa-exclamation-triangle"></i> Disclaimer</div>
+  <div class="box-content">
+
+<p>These instructions come with no warranty. I do not use Windows. If you
+have any questions about Windows then I cannot answer them.  If you
+have any constructive comments the please <a href="https://user.it.uu.se/~justin/Hugo/" target="_blank">contact</a> me.</p>
+</div>
+</div>
+<p><em>Anaconda</em> is a distribution of Python and R that includes many popular Data Science packages, such as Jupyter Notebook, NumPy, pandas, and scikit-learn. For numerous reasons, it is suggested for working with Jupyter Notebook.</p>
+<ol>
+<li>
+<p><strong>Ease of installation:</strong> Anaconda comes with a built-in package
+manager called <em>conda</em>, which makes it easy to install and manage
+packages, including Jupyter Notebook. Anaconda also automatically
+manages dependencies between packages, so you do not have to worry
+about conflicts between different versions of packages.</p>
+</li>
+<li>
+<p><strong>Integrated development environment (IDE):</strong> Anaconda includes an
+IDE called <em>Anaconda Navigator</em>, which provides a user-friendly
+interface for managing your Python environment and launching
+Jupyter Notebook.</p>
+</li>
+<li>
+<p><strong>Large collection of pre-installed packages:</strong> Anaconda comes with
+a large collection of pre-installed packages, which can save you a
+lot of time compared to installing each package individually.</p>
+</li>
+<li>
+<p><strong>Virtual environment management:</strong> Anaconda comes with conda which
+is a powerful virtual environment manager that allows you to create
+and manage multiple isolated environments, each with its own set of
+packages. This can help you to avoid conflicts between packages and
+maintain reproducibility of your projects.</p>
+</li>
+</ol>
+<p>Now that we know the advantages of using Anaconda, we proceed with a
+detailed explanation of how to install anaconda and subsequently open
+Jupyter notebooks through Anaconda. There are two options to do this.</p>
+<p><strong>First option</strong></p>
+<ol>
+<li>
+<p>First, download the Anaconda distribution for Windows from
+<a href="https://www.anaconda.com/products/distribution" target="_blank">https://www.anaconda.com/products/distribution</a>.</p>
+</li>
+<li>
+<p>Once the download is complete, double-click the installer file to
+begin the installation process.</p>
+</li>
+<li>
+<p>Follow the prompts in the installer to complete the
+installation. During this process, you will be prompted to select
+the installation location. By default, Anaconda will be installed
+in the C:\ProgramData\Anaconda3 folder, but you can choose a
+different location if you prefer. The next screen is the Advanced
+Installation Options. Here you have some additional options like if
+you want to add anaconda to your PATH variable, and if you want to
+register Anaconda as your default Python. Make sure you check the
+&ldquo;Add Anaconda to my PATH environment variable&rdquo; option, it will make
+your life easier.</p>
+</li>
+<li>
+<p>Once the installation is complete, open the Start menu and search
+for &ldquo;Anaconda Prompt&rdquo;. Click on the Anaconda Prompt shortcut to
+open a command prompt window.</p>
+</li>
+<li>
+<p>In the command prompt window, type the following command to verify
+that Anaconda is installed correctly: conda &ndash;version</p>
+</li>
+<li>
+<p>Next, we need to create a virtual environment in which to install
+Jupyter Notebook. In the Anaconda prompt, type the following
+command: conda create -n env_name , replacing env_name with the
+name you want to give to your virtual environment.</p>
+</li>
+<li>
+<p>After the environment is created, activate it by typing the
+following command: conda activate env_name</p>
+</li>
+<li>
+<p>Once the virtual environment is active, we can install Jupyter
+Notebook by typing the following command: conda install jupyter</p>
+</li>
+<li>
+<p>After Jupyter Notebook is installed, we can start the Jupyter
+Notebook server by typing the following command in the Anaconda
+prompt: jupyter notebook</p>
+</li>
+<li>
+<p>This will open a web browser window with the Jupyter Notebook
+interface. From here, you can create new notebooks, open existing
+notebooks, and run code cells.</p>
+</li>
+</ol>
+<p>This is a step by step explanation of how to install Anaconda and how
+to open Jupyter Notebook through the Anaconda prompt, however, with
+the installation of Anaconda it comes Anaconda Navigator. This is a
+graphical user interface (GUI) that allows you to easily manage your
+Anaconda environments and packages, as well as launch Jupyter Notebook
+and other applications. Let us see how to open Jupyter Notebook with
+Anaconda Navigator (more intuitive than the first option).</p>
+<p><strong>Second option</strong></p>
+<ol>
+<li>
+<p>Open the Anaconda Navigator application. You can find it by
+searching for &ldquo;Anaconda Navigator&rdquo; in the Start menu (Windows) or
+Spotlight (Mac).</p>
+</li>
+<li>
+<p>Once the Anaconda Navigator window is open, you should see Jupyter
+Notebook in the list of applications. Click on the &ldquo;Launch&rdquo; button
+next to Jupyter Notebook.</p>
+</li>
+<li>
+<p>A new tab will open in your default web browser, and you will be
+taken to the Jupyter Notebook interface.</p>
+</li>
+<li>
+<p>You should see the list of files and directories in the current
+working directory, you can navigate to the desired folder and
+create a new notebook by clicking the &ldquo;New&rdquo; button on the right
+corner and select &ldquo;Python 3&rdquo;.</p>
+</li>
+</ol>
 
             <footer class="footline">
             </footer>
@@ -260,12 +322,12 @@ set?</li>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1709145504" defer></script>
-        <script src="/js/lunr/lunr.min.js?1709145504" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1709145504" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1709145504" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1709145504" defer></script>
-        <script src="/js/search.js?1709145504" defer></script>
+        <script src="/js/auto-complete.js?1709192834" defer></script>
+        <script src="/js/lunr/lunr.min.js?1709192834" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1709192834" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1709192834" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1709192834" defer></script>
+        <script src="/js/search.js?1709192834" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -276,25 +338,30 @@ set?</li>
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-topics">
           <ul class="enlarge morespace collapsible-menu">
-          <li data-nav-id="/timetable/index.html" class=""><a class="padding" href="/timetable/index.html">Timetable</a></li>
-          <li data-nav-id="/lecture1/index.html" class=""><a class="padding" href="/lecture1/index.html">Lecture 1</a></li>
-          <li data-nav-id="/lecture2/index.html" class="active"><a class="padding" href="/lecture2/index.html">Lecture 2</a></li>
-          <li data-nav-id="/lecture3/index.html" class=""><a class="padding" href="/lecture3/index.html">Lecture 3</a></li>
-          <li data-nav-id="/lecture4/index.html" class=""><a class="padding" href="/lecture4/index.html">Lecture 4</a></li>
-          <li data-nav-id="/lecture5/index.html" class=""><a class="padding" href="/lecture5/index.html">Lecture 5</a></li>
-          <li data-nav-id="/lecture6/index.html" class=""><a class="padding" href="/lecture6/index.html">Lecture 6</a></li>
-          <li data-nav-id="/lecture7/index.html" class=""><a class="padding" href="/lecture7/index.html">Lecture 7</a></li>
-          <li data-nav-id="/lecture8/index.html" class=""><a class="padding" href="/lecture8/index.html">Lecture 8</a></li>
-          <li data-nav-id="/lecture9/index.html" class=""><a class="padding" href="/lecture9/index.html">Lecture 9</a></li>
-          <li data-nav-id="/lecture10/index.html" class=""><a class="padding" href="/lecture10/index.html">Lecture 10</a></li>
+          <li data-nav-id="/lectures/index.html" class=""><a class="padding" href="/lectures/index.html">Lectures</a><ul id="R-subsections-d620b825576c756a29a0053db8c4ae4a" class="morespace collapsible-menu">
+          <li data-nav-id="/lectures/lecture1/index.html" class=""><a class="padding" href="/lectures/lecture1/index.html">Lecture 1</a></li>
+          <li data-nav-id="/lectures/lecture2/index.html" class=""><a class="padding" href="/lectures/lecture2/index.html">Lecture 2</a></li>
+          <li data-nav-id="/lectures/lecture3/index.html" class="alwaysopen"><a class="padding" href="/lectures/lecture3/index.html">Lecture 3</a><ul id="R-subsections-b9b1152126e80a6461280b588799b226" class="morespace collapsible-menu">
+          <li data-nav-id="/lectures/lecture3/naive_bayes_spam/index.html" class=""><a class="padding" href="/lectures/lecture3/naive_bayes_spam/index.html">Naive Bayes</a></li></ul></li>
+          <li data-nav-id="/lectures/lecture4/index.html" class=""><a class="padding" href="/lectures/lecture4/index.html">Lecture 4</a></li>
+          <li data-nav-id="/lectures/lecture5/index.html" class=""><a class="padding" href="/lectures/lecture5/index.html">Lecture 5</a></li>
+          <li data-nav-id="/lectures/lecture6/index.html" class=""><a class="padding" href="/lectures/lecture6/index.html">Lecture 6</a></li>
+          <li data-nav-id="/lectures/lecture7/index.html" class=""><a class="padding" href="/lectures/lecture7/index.html">Lecture 7</a></li>
+          <li data-nav-id="/lectures/lecture8/index.html" class=""><a class="padding" href="/lectures/lecture8/index.html">Lecture 8</a></li>
+          <li data-nav-id="/lectures/lecture9/index.html" class=""><a class="padding" href="/lectures/lecture9/index.html">Lecture 9</a></li>
+          <li data-nav-id="/lectures/lecture10/index.html" class=""><a class="padding" href="/lectures/lecture10/index.html">Lecture 10</a></li></ul></li>
           <li data-nav-id="/labs/index.html" class=""><a class="padding" href="/labs/index.html">Assignments and Project</a></li>
-          <li data-nav-id="/recommended/index.html" class=""><a class="padding" href="/recommended/index.html">Resources</a></li>
+          <li data-nav-id="/resources/index.html" class="parent "><a class="padding" href="/resources/index.html">Resources</a><ul id="R-subsections-a1e0378c1bb3377d5f53abc7a609ed21" class="morespace collapsible-menu">
+          <li data-nav-id="/resources/python_virtual_env/index.html" class=""><a class="padding" href="/resources/python_virtual_env/index.html">Virtual Environments</a></li>
+          <li data-nav-id="/resources/python_notebooks_ml/index.html" class=""><a class="padding" href="/resources/python_notebooks_ml/index.html">Python Notebooks</a></li>
+          <li data-nav-id="/resources/anaconda_instructions/index.html" class="active"><a class="padding" href="/resources/anaconda_instructions/index.html">Anaconda</a></li></ul></li>
           </ul>
         </div>
         <div id="R-shortcuts">
           <div class="nav-title padding">More</div>
           <ul class="space">
             <li><a class="padding" href="https://github.com/JustinKennethPearson/ml-1dl034-public-assignments"><i class='fab fa-fw fa-github'></i> GitHub repo</a></li>
+            <li><a class="padding" href="https://user.it.uu.se/~justin/Hugo/"><i class='fas fa-home'></i> Homepage</a></li>
           </ul>
         </div>
         <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
@@ -309,7 +376,7 @@ set?</li>
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">Language</label>
                     <select id="R-select-language" onchange="location = baseUri + this.value;">
-                      <option id="R-en" value="/lecture2/index.html" lang="en" selected></option>
+                      <option id="R-en" value="/resources/anaconda_instructions/index.html" lang="en" selected></option>
                     </select>
                   </div>
                   <div class="clear"></div>
@@ -347,8 +414,8 @@ set?</li>
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1709145504" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1709145504" defer></script>
-    <script src="/js/theme.js?1709145504" defer></script>
+    <script src="/js/clipboard.min.js?1709192834" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1709192834" defer></script>
+    <script src="/js/theme.js?1709192834" defer></script>
   </body>
 </html>

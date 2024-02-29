@@ -43,7 +43,16 @@
     <loc>https://intro-ml-1dl034-uu-se.github.io/labs/index.html</loc>
   </url>
   <url>
-    <loc>https://intro-ml-1dl034-uu-se.github.io/recommended/index.html</loc>
+    <loc>https://intro-ml-1dl034-uu-se.github.io/resources/index.html</loc>
+  </url>
+  <url>
+    <loc>https://intro-ml-1dl034-uu-se.github.io/resources/python_virtual_env/index.html</loc>
+  </url>
+  <url>
+    <loc>https://intro-ml-1dl034-uu-se.github.io/resources/python_notebooks_ml/index.html</loc>
+  </url>
+  <url>
+    <loc>https://intro-ml-1dl034-uu-se.github.io/resources/anaconda_instructions/index.html</loc>
   </url>
   <url>
     <loc>https://intro-ml-1dl034-uu-se.github.io/categories/index.html</loc>
