@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.3">
-    <meta name="generator" content="Relearn 5.24.2+tip">
+    <meta name="generator" content="Hugo 0.123.4">
+    <meta name="generator" content="Relearn 5.24.3+tip">
     <meta name="description" content="">
     <meta name="author" content="Justin Pearson">
     <meta name="twitter:card" content="summary">
@@ -22,19 +22,19 @@ This post assumes that you are already familiar with Bayes&rsquo; theorem.">
     <link href="/lectures/lecture3/naive_bayes_spam/index.xml" rel="alternate" type="application/rss+xml" title="Naive Bayes for Spam Classification :: Introduction to ML 1D034 homepage.">
     <link href="/lectures/lecture3/naive_bayes_spam/index.print.html" rel="alternate" type="text/html" title="Naive Bayes for Spam Classification :: Introduction to ML 1D034 homepage.">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1709192834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709192834" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1709192834" rel="stylesheet">
-    <link href="/css/auto-complete.css?1709192834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1709192834" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1709192834" rel="stylesheet">
-    <link href="/css/fonts.css?1709192834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1709192834" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1709192834" rel="stylesheet">
-    <link href="/css/theme-blue.css?1709192834" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1709192834" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/variant.css?1709192834" rel="stylesheet">
-    <link href="/css/print.css?1709192834" rel="stylesheet" media="print">
-    <link href="/css/ie.css?1709192834" rel="stylesheet">
-    <script src="/js/url.js?1709192834"></script>
-    <script src="/js/variant.js?1709192834"></script>
+    <link href="/css/fontawesome-all.min.css?1709203213" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709203213" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1709203213" rel="stylesheet">
+    <link href="/css/auto-complete.css?1709203213" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1709203213" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1709203213" rel="stylesheet">
+    <link href="/css/fonts.css?1709203213" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1709203213" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1709203213" rel="stylesheet">
+    <link href="/css/theme-blue.css?1709203213" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1709203213" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/variant.css?1709203213" rel="stylesheet">
+    <link href="/css/print.css?1709203213" rel="stylesheet" media="print">
+    <link href="/css/ie.css?1709203213" rel="stylesheet">
+    <script src="/js/url.js?1709203213"></script>
+    <script src="/js/variant.js?1709203213"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -73,10 +73,9 @@ This post assumes that you are already familiar with Bayes&rsquo; theorem.">
     <li><a href="#our-data-set">Our data set</a></li>
     <li><a href="#background-classifying-with-only-one-word">Background: Classifying with only one word.</a></li>
     <li><a href="#first-pitfall-estimating-the-probabilities">First Pitfall: Estimating the probabilities</a></li>
-    <li><a href="#take-home-message">Take home message</a></li>
     <li><a href="#naive-bayes-first-version">Naive Bayes: first version</a></li>
     <li><a href="#the-naive-in-naive-bayes">The Naive in Naive Bayes</a></li>
-    <li><a href="#take-home-message-1">Take home message</a></li>
+    <li><a href="#take-home-message">Take home message</a></li>
     <li><a href="#calculating-the-spam-probability">Calculating the spam probability.</a></li>
     <li><a href="#not-calculating-the-whole-probability">Not calculating the whole probability.</a></li>
     <li><a href="#laplacian-smoothing">Laplacian Smoothing</a></li>
@@ -132,21 +131,24 @@ is really going on in Naive Bayes for spam classification.</p>
 <p>Rather foolishly I did all the calculations in the post by hand. If
 you find any errors the please report them to me.</p>
 <h2 id="our-data-set">Our data set</h2>
-<p>To make things more concrete we will work on a very small data set
+
+<span class="math align-center">
+To make things more concrete we will work on a very small data set
 where we can do the calculations directly. We are classifying
-micro-tweets of exactly 3 words. Our training set is as follows. 
-<span class="math align-center">$S$</span>
-indicates that a message is spam and 
-<span class="math align-center">$\overline{S}$</span> indicates that a
-message is not spam.</p>
+micro-tweets of exactly 3 words. Our training set is as follows. $S$
+indicates that a message is spam and $\neg S$ indicates that a
+message is not spam.
+</span>
+
+<span class="math align-center"> $\neg S$ </span>
 <table>
 <thead>
 <tr>
 <th>Number</th>
 <th>Tweet</th>
 <th>Spam (
-<span class="math align-center">$S$</span> or 
-<span class="math align-center">$\overline{S}$</span>)</th>
+<span class="math align-center"> $S$ </span> or 
+<span class="math align-center"> $\neg S$ </span>)</th>
 </tr>
 </thead>
 <tbody>
@@ -154,185 +156,176 @@ message is not spam.</p>
 <td>1</td>
 <td>money aardvark boondoggle</td>
 <td>
-<span class="math align-center">$S$</span></td>
+<span class="math align-center"> $S$ </span></td>
 </tr>
 <tr>
 <td>2</td>
 <td>money money money</td>
 <td>
-<span class="math align-center">$S$</span></td>
+<span class="math align-center"> $S$ </span></td>
 </tr>
 <tr>
 <td>3</td>
 <td>money money world</td>
 <td>
-<span class="math align-center">$S$</span></td>
+<span class="math align-center"> $S$ </span></td>
 </tr>
 <tr>
 <td>4</td>
 <td>money world world</td>
 <td>
-<span class="math align-center">$S$</span></td>
+<span class="math align-center"> $S$ </span></td>
 </tr>
 <tr>
 <td>5</td>
 <td>viagra money back</td>
 <td>
-<span class="math align-center">$S$</span></td>
+<span class="math align-center"> $S$ </span></td>
 </tr>
 <tr>
 <td>6</td>
 <td>viagra heart honey</td>
 <td>
-<span class="math align-center">$S$</span></td>
+<span class="math align-center"> $S$ </span></td>
 </tr>
 <tr>
 <td>7</td>
 <td>aardvark boondoggle world</td>
 <td>
-<span class="math align-center">$\overline{S}$</span> (not spam)</td>
+<span class="math align-center"> $\neg S$ </span> (not spam)</td>
 </tr>
 <tr>
 <td>8</td>
 <td>honey honey honey</td>
 <td>
-<span class="math align-center">$\overline{S}$</span> (not spam)</td>
+<span class="math align-center"> $\neg S$ </span> (not spam)</td>
 </tr>
 <tr>
 <td>9</td>
 <td>viagra heart money</td>
 <td>
-<span class="math align-center">$\overline{S}$</span> (not spam)</td>
+<span class="math align-center"> $\neg S$ </span> (not spam)</td>
 </tr>
 <tr>
 <td>10</td>
 <td>money honey now</td>
 <td>
-<span class="math align-center">$\overline{S}$</span> (not spam)</td>
+<span class="math align-center"> $\neg S$ </span> (not spam)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="background-classifying-with-only-one-word">Background: Classifying with only one word.</h2>
-<p>As a warm up let&rsquo;s just build a classifier that uses one particular
-word 
-<span class="math align-center">$w = \mathrm{money}$</span>.</p>
-<p>Bayes&rsquo; Theorem should be familiar to you by now:
 
-<span class="math align-center">$$
+<span class="math align-center">
+As a warm up let's just build a classifier that uses one particular
+word $w = \mathrm{money}$. 
+
+
+Bayes' Theorem should be familiar to you by now:
+$$
 P(S|w) = \frac{P(w|S)P(S)}{P(w)}
-$$</span></p>
-<p>
-<span class="math align-center">$P(S|w)$</span> is the even that an email is Spam given that the word 
-<span class="math align-center">$w$</span>
+$$
+
+$P(S|w)$ is the even that an email is Spam given that the word $w$
 occurs in it. Using Bayes theorem we can calculate the probability
-that a message containing the word 
-<span class="math align-center">$w$</span> is spam.  We can estimate the
-values 
-<span class="math align-center">$P(w|S)$</span>, 
-<span class="math align-center">$P(S)$</span> and 
-<span class="math align-center">$P(w)$</span> from out data set.</p>
+that a message containing the word $w$ is spam.  We can estimate the
+values $P(w|S)$, $P(S)$ and $P(w)$ from out data set. 
 
-<span class="math align-center">$$
+$$
 P(S) = \frac{\mathrm{number\ spam}}{\mathrm{total\ messages}} = \frac{6}{10}
-$$</span>
-<p>To estimate 
-<span class="math align-center">$P(w|S)$</span> we have to count the number of times that a
+$$
+
+
+To estimate $P(w|S)$ we have to count the number of times that a
 particular word occurs in a spam message. So
-
-<span class="math align-center">$$
+$$
 P(\mathrm{money}|S) = \frac{5}{6}
-$$</span>
-When you are only considering a single word then estimating 
-<span class="math align-center">$P(\mathrm{money})$</span>
+$$
+When you are only considering a single word then estimating $P(\mathrm{money})$
 is easy. It is the ratio of the number of tweets that contain the
-word &lsquo;money&rsquo; and the total number of tweets. The word money appears in
-
-<span class="math align-center">$7$</span> tweets. So
-
-<span class="math align-center">$$
+word 'money' and the total number of tweets. The word money appears in
+$7$ tweets. So
+$$
 P(\mathrm{money}) = \frac{7}{10}
-$$</span></p>
-<p>So if we get a message that contains the word &lsquo;money&rsquo; we can calculate
-the probability that it is a spam message.  
-<span class="math align-center">$$ P(S|\mathrm{money}) =
+$$
+
+So if we get a message that contains the word 'money' we can calculate
+the probability that it is a spam message.  $$ P(S|\mathrm{money}) =
 \frac{P(w|S)P(S)}{P(w)} = \frac{\frac{5}{6}\frac{6}{10}}{\frac{7}{10}}
-= \frac{5}{10}\frac{10}{7} = \frac{5}{7} \approx 0.71 $$</span> There is an
-important identity that will become useful later on 
-<span class="math align-center">$$
+= \frac{5}{10}\frac{10}{7} = \frac{5}{7} \approx 0.71 $$ There is an
+important identity that will become useful later on $$
 P(\mathrm{money}) = P(\mathrm{money}|S)P(S) +
-P(\mathrm{money}|\overline{S})P(\overline{S}) $$</span> So 
-<span class="math align-center">$$
+P(\mathrm{money}|\neg S)P(\neg S) $$ So $$
 P(\mathrm{money})= \frac{5}{6}\frac{6}{10} + \frac{2}{4}\frac{4}{10} =
-\frac{7}{10} $$</span></p>
+\frac{7}{10} $$
+
+</span>
 <h2 id="first-pitfall-estimating-the-probabilities">First Pitfall: Estimating the probabilities</h2>
-<p>So how to we estimate the probabilities 
-<span class="math align-center">$P(w|S)$</span> , 
-<span class="math align-center">$P(S)$</span> and 
-<span class="math align-center">$P(w)$</span>?
-What do they really mean?  The probabilities 
-<span class="math align-center">$P(S)$</span> and 
-<span class="math align-center">$P(\overline{S}$</span>) are
+
+<span class="math align-center">
+
+So how to we estimate the probabilities $P(w|S)$ , $P(S)$ and $P(w)$?
+What do they really mean?  The probabilities $P(S)$ and $P(\neg S$) are
 unambiguous. They are just the probability that a tweet is spam or
-not. But 
-<span class="math align-center">$P(w|S)$</span>, 
-<span class="math align-center">$P(w|\overline{S})$</span>, and 
-<span class="math align-center">$P(w)$</span> can mean different things
-depending exactly which model we use to calculate the probabilities.</p>
+not. But $P(w|S)$, $P(w|\neg S)$, and $P(w)$ can mean different things
+depending exactly which model we use to calculate the probabilities. 
+
+</span>
 <p>There are two models:</p>
 <ul>
 <li>
-<p>(A): To calculate 
-<span class="math align-center">$P(\mathrm{money}|S)$</span>. There are 6 messages that
-are spam and in those 6 messages 5 of them (1,2,3,4,5) contain the word money so
-
-<span class="math align-center">$P(\mathrm{money}|S) = 5/6$</span>, and of the 10 messages 7 of them
-(1,2,3,4,5,9,10)contain the word &lsquo;money&rsquo; so 
-<span class="math align-center">$P(\mathrm{money}) =
-7/10$</span>. This is exactly what we did above.</p>
+<p>(A): 
+<span class="math align-center"> To calculate $P(\mathrm{money}|S)$. There are 6
+messages that are spam and in those 6 messages 5 of them (1,2,3,4,5)
+contain the word money so $P(\mathrm{money}|S) = 5/6$, and of the 10
+messages 7 of them (1,2,3,4,5,9,10)contain the word 'money' so
+$P(\mathrm{money}) = 7/10$. This is exactly what we did above. </span></p>
 </li>
 <li>
-<p>(B): To calculate 
-<span class="math align-center">$P(\mathrm{money})$</span> there are 
-<span class="math align-center">$10\times 3 = 30$</span>
-words in our training set and the word money appears 10 times so
-
-<span class="math align-center">$$P(\mathrm{money}) = 10/30.$$</span> To calculate 
-<span class="math align-center">$P(\mathrm{money}|S)$</span>
-there are 6 spam messages each of 3 words long. In the words of the
-spam messages the word &lsquo;money&rsquo; appears 8 times. So 
-<span class="math align-center">$$
+<p>(B): 
+<span class="math align-center"> To calculate $P(\mathrm{money})$ there are $10\times 3 = 30$
+   words in our training set and the word money appears 10 times so
+   $$P(\mathrm{money}) = 10/30.$$ To calculate $P(\mathrm{money}|S)$
+   there are 6 spam messages each of 3 words long. In the words of the
+   spam messages the word 'money' appears 8 times. So $$
    P(\mathrm{money} | S) = \frac{8}{3 \times 6} = \frac{8}{18} =
-   \frac{4}{9} $$</span>
-The probability a message being spam is still
-
-<span class="math align-center">$6/10$</span>.    So
-if I get the message &lsquo;money for nothing&rsquo; then the probability that
-it is spam is calculated as before 
-<span class="math align-center">$$ P(S|\mathrm{money}) =
+   \frac{4}{9} $$ 
+   The probability a message being spam is still
+   $6/10$.    So
+   if I get the message 'money for nothing' then the probability that
+   it is spam is calculated as before $$ P(S|\mathrm{money}) =
    \frac{P(\mathrm{money}|S)P(S)}{P(\mathrm{money})} =
    \frac{{\frac{8}{3 \times 6}\times \frac{6}{10}}}{ \frac{10}{30}} =
-   \frac{8}{10} $$</span>
-It seems that if spammers are prone to repeat words in their
-message then this increases the probability that a message
-containing that word is spam.</p>
+   \frac{8}{10} $$
+   It seems that if spammers are prone to repeat words in their
+   message then this increases the probability that a message
+   containing that word is spam. </span></p>
 </li>
 </ul>
-<p>So how do you calculate the probability that the message &lsquo;money money
-mammon&rsquo; is spam? In model (A) it does not matter how many times &lsquo;money&rsquo;
-appears in a message: you only count the number of messages &lsquo;money&rsquo;
+
+<span class="math align-center">
+So how do you calculate the probability that the message 'money money
+mammon' is spam? In model (A) it does not matter how many times 'money'
+appears in a message: you only count the number of messages 'money'
 appears in. While in model (B) there is some weighting of the number
 of times that a word appears. But to calculate
-
-<span class="math align-center">$P(S|\mathrm{money}^2)$</span> (where  is short hand for &lsquo;money appearing
-twice) we have calculate 
-<span class="math align-center">$P(\mathrm{money}^2|S)$</span>. How you do this
+$P(S|\mathrm{money}^2)$ (where  is short hand for 'money appearing
+twice) we have calculate $P(\mathrm{money}^2|S)$. How you do this
 depends a bit on your model and the assumptions underlying the
-model. We&rsquo;ll get to that later.</p>
+model. We'll get to that later.
+</span>
+
+<div class="box notices cstyle info">
+  <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Take Home Message</div>
+  <div class="box-content">
+
 <h2 id="take-home-message">Take home message</h2>
 <p>So the first take home message is be careful how you count the words
 and how you calculate the probabilities.  If you confuse model (A) and
 model (B) while writing your code you will get strange answers (as I
 did at one point).</p>
+</div>
+</div>
 <h2 id="naive-bayes-first-version">Naive Bayes: first version</h2>
 <p>We are going to use model (A). That is we going to ignore how many
 times a word appears in a message. We are only interested if the word
@@ -408,61 +401,65 @@ appears in a non-spam tweet.</p>
 </tr>
 </tbody>
 </table>
-<p>You can turn these counts into probabilities, and thus you can
-calculate quantities like 
-<span class="math align-center">$P(\mathrm{money}|S) =  5/6$</span>,
 
-<span class="math align-center">$P(\mathrm{money}|\overline{S}) = 2/4$</span>.</p>
-<p>Suppose I receive a message &lsquo;viagra money boondoggle&rsquo; what is the
-probability that it is spam message? When we use Bayes&rsquo; theorem we
-have to calculate 
-<span class="math align-center">$$P(\mathrm{viagra} \land \mathrm{money} \land
-\mathrm{boondoggle}|S)$$</span> where 
-<span class="math align-center">$$\mathrm{viagra} \land \mathrm{money}
-\land \mathrm{boondoggle}$$</span> is the event that the words &lsquo;viagra&rsquo;,
-&lsquo;money&rsquo; and &lsquo;boondoggle&rsquo; appears in a message.</p>
+<span class="math align-center">
+You can turn these counts into probabilities, and thus you can
+calculate quantities like $P(\mathrm{money}|S) =  5/6$,
+$P(\mathrm{money}|\neg S) = 2/4$.
+
+
+
+
+Suppose I receive a message 'viagra money boondoggle' what is the
+probability that it is spam message? When we use Bayes' theorem we
+have to calculate $$P(\mathrm{viagra} \land \mathrm{money} \land
+\mathrm{boondoggle}|S)$$ where $$\mathrm{viagra} \land \mathrm{money}
+\land \mathrm{boondoggle}$$ is the event that the words 'viagra',
+'money' and 'boondoggle' appears in a message.
+
+</span>
 <h2 id="the-naive-in-naive-bayes">The Naive in Naive Bayes</h2>
-<p>We need to make an independence assumption. In a spam or non spam
-message the probability of words are independent. That is
 
-<span class="math align-center">$$
+<span class="math align-center">
+We need to make an independence assumption. In a spam or non spam
+message the probability of words are independent. That is 
+$$
 P(w_1 \land w_2 \land \cdots \land w_n | S) = P(w_1|S)P(w_1|S) \cdots
 P(w_n|S)
-$$</span>
+$$
 and
+$$
+P(w_1 \land w_2 \land \cdots \land w_n | \neg S) = P(w_1|\neg S)P(w_1|\neg S) \cdots
+P(w_n|\neg S)
+$$
 
-<span class="math align-center">$$
-P(w_1 \land w_2 \land \cdots \land w_n | \overline{S}) = P(w_1|\overline{S})P(w_1|\overline{S}) \cdots
-P(w_n|\overline{S})
-$$</span></p>
-<p>Note this is a weaker assumption than simply saying
 
-<span class="math align-center">$$
+Note this is a weaker assumption than simply saying 
+$$
 P(w_1 \cdots w_n) = \prod_{1\leq i \leq n} P(w_i)
-$$</span></p>
-<h2 id="take-home-message-1">Take home message</h2>
-<p>Note that because we have made the assumptions that
+$$
 
-<span class="math align-center">$$P(w_1 \land w_2
+</span>
+<h2 id="take-home-message">Take home message</h2>
+
+<span class="math align-center">
+Note that because we have made the assumptions that 
+$$P(w_1 \land w_2
 \land \cdots \land w_n | S) =  
-\prod_{i=1}^n P(w_i|S)$$</span> and
-
-<span class="math align-center">$$P(w_1 \land w_2 \land \cdots \land w_n | S) = 
-\prod_{i=1}^n P(w_i|S)$$</span>
+\prod_{i=1}^n P(w_i|S)$$
+and 
+$$P(w_1 \land w_2 \land \cdots \land w_n | S) = 
+\prod_{i=1}^n P(w_i|S)$$
 it does not make sense to directly estimate the probabilities of
-
-<span class="math align-center">$P(w_i)$</span> directly from the data set. Later on we will see that you do
-actually need the probabilities 
-<span class="math align-center">$P(w_1 \cdots w_n)$</span> to decide if a
+$P(w_i)$ directly from the data set. Later on we will see that you do
+actually need the probabilities $P(w_1 \cdots w_n)$ to decide if a
 message is spam or not. If you want to calculate the probability
-
-<span class="math align-center">$P(w_1 \cdots w_n)$</span> then you must use the identity 
-<span class="math align-center">$P(w_1 \cdots
-w_n)$</span> equals
-
-<span class="math align-center">$$
-P(w_1 \cdots w_n|S)P(S) + P(w_1 \cdots w_n|\overline{S})P(\overline{S})
-$$</span></p>
+$P(w_1 \cdots w_n)$ then you must use the identity $P(w_1 \cdots
+w_n)$ equals 
+$$
+P(w_1 \cdots w_n|S)P(S) + P(w_1 \cdots w_n|\neg S)P(\neg S)
+$$
+</span>
 <p>The independence assumption is why Naive Bayes is referred to as
 naive. Although this model could be improved. It seems that the
 probability of one word appearing in a message should not be
@@ -470,322 +467,287 @@ independent of another word. If a spammer write &lsquo;money&rsquo; then he is
 likely to also include &lsquo;viagra&rsquo; in the message. Even so, assuming
 independence works very well in practice.</p>
 <h2 id="calculating-the-spam-probability">Calculating the spam probability.</h2>
-<p>We can now apply Bayes&rsquo; theorem 
-<span class="math align-center">$P(S | \mathrm{viagra} \land
-\mathrm{money} \land \mathrm{boondoggle})$</span> equals 
-<span class="math align-center">$$ \frac{
+
+<span class="math align-center">
+
+We can now apply Bayes' theorem $P(S | \mathrm{viagra} \land
+\mathrm{money} \land \mathrm{boondoggle})$ equals $$ \frac{
 P(\mathrm{viagra} \land \mathrm{money} \land \mathrm{boondoggle}|S)
 P(S)}{P(\mathrm{viagra} \land \mathrm{money} \land
-\mathrm{boondoggle})} $$</span></p>
-<p>From the independence assumption we have that 
-<span class="math align-center">$P(S | \mathrm{viagra}
-\land \mathrm{money} \land \mathrm{boondoggle})$</span> equals 
-<span class="math align-center">$$ \frac{
+\mathrm{boondoggle})} $$
+
+From the independence assumption we have that $P(S | \mathrm{viagra}
+\land \mathrm{money} \land \mathrm{boondoggle})$ equals $$ \frac{
 P(\mathrm{viagra}|S)P(\mathrm{money}|S)P(\mathrm{boondoggle}|S)P(S)}
-{P(\mathrm{viagra} \land \mathrm{money} \land \mathrm{boondoggle})} $$</span></p>
-<p>To  calculate 
-<span class="math align-center">$P(\mathrm{viagra} \land \mathrm{money} \land
-\mathrm{boondoggle})$</span> we use the identity above.
-Taking product 
-<span class="math align-center">$$P(\mathrm{viagra})P(\mathrm{money})P(\mathrm{boondoggle})$$</span>
-is the wrong answer.</p>
-<p>So instead we get that 
-<span class="math align-center">$P(\mathrm{viagra} \land \mathrm{money} \land
-\mathrm{boondoggle})$</span> equals
+{P(\mathrm{viagra} \land \mathrm{money} \land \mathrm{boondoggle})} $$
 
-<span class="math align-center">$P(\mathrm{viagra} \land \mathrm{money} \land
-\mathrm{boondoggle}|S)P(S)$</span> plus 
-<span class="math align-center">$P(\mathrm{viagra} \land \mathrm{money} \land
-\mathrm{boondoggle}|\overline{S})P(\overline{S})$</span>.</p>
-<p>The by the independence assumption
+To  calculate $P(\mathrm{viagra} \land \mathrm{money} \land
+\mathrm{boondoggle})$ we use the identity above.
+Taking product $$P(\mathrm{viagra})P(\mathrm{money})P(\mathrm{boondoggle})$$
+is the wrong answer. 
 
-<span class="math align-center">$P(\mathrm{viagra} \land \mathrm{money} \land \mathrm{boondoggle}|S)$</span> equals</p>
+So instead we get that $P(\mathrm{viagra} \land \mathrm{money} \land
+\mathrm{boondoggle})$ equals 
+$P(\mathrm{viagra} \land \mathrm{money} \land
+\mathrm{boondoggle}|S)P(S)$ plus $P(\mathrm{viagra} \land \mathrm{money} \land
+\mathrm{boondoggle}|\neg S)P(\neg S)$.
 
-<span class="math align-center">$$
+The by the independence assumption 
+$P(\mathrm{viagra} \land \mathrm{money} \land \mathrm{boondoggle}|S)$ equals
+
+$$
 P(\mathrm{viagra}|S)P(\mathrm{money}|S)P(\mathrm{boondoggle}|S) = 
 \frac{2}{6}\frac{5}{6}\frac{1}{6} = \frac{5}{108} 
-$$</span>
-<p>Putting the numbers in we get 
-<span class="math align-center">$P(\mathrm{viagra} \land \mathrm{money} \land
-\mathrm{boondoggle})$</span> equals
+$$
 
-<span class="math align-center">$$ \left(\frac{2}{6}\cdot \frac{5}{6}\cdot
+Putting the numbers in we get $P(\mathrm{viagra} \land \mathrm{money} \land
+\mathrm{boondoggle})$ equals 
+$$ \left(\frac{2}{6}\cdot \frac{5}{6}\cdot
 \frac{1}{6}\right)\frac{6}{10} + \left(\frac{1}{4}\cdot
 \frac{2}{4}\cdot \frac{1}{4}\right)\frac{4}{10} \approx 0.08
-$$</span></p>
-<p>So 
-<span class="math align-center">$P(S|\mathrm{viagra} \land
-\mathrm{money} \land \mathrm{boondoggle})$</span> equals</p>
+$$
 
-<span class="math align-center">$$
+So $P(S|\mathrm{viagra} \land
+\mathrm{money} \land \mathrm{boondoggle})$ equals
+
+$$
 \frac{\frac{5}{108}\frac{6}{10}}{0.08} \approx 0.35
-$$</span>
+$$
+
+
+
+</span>
 <h2 id="not-calculating-the-whole-probability">Not calculating the whole probability.</h2>
-<p>When implementing the spam filter we do not actually need to calculate
+
+<span class="math align-center">
+When implementing the spam filter we do not actually need to calculate
 the denominators. We just compare the expressions
-
-<span class="math align-center">$P(\mathrm{viagra}|S)P(\mathrm{money}|S)P(\mathrm{boondoggle}|S)P(S)$</span>
+$P(\mathrm{viagra}|S)P(\mathrm{money}|S)P(\mathrm{boondoggle}|S)P(S)$
 and
-
-<span class="math align-center">$P(\mathrm{viagra}|\overline{S})P(\mathrm{money}|\overline{S})P(\mathrm{boondoggle}|\overline{S})P(\overline{S})$</span>
+$P(\mathrm{viagra}|\neg S)P(\mathrm{money}|\neg S)P(\mathrm{boondoggle}|\neg S)P(\neg S)$
 and see which one is bigger. This is also important because some of
 the numbers start getting smaller and smaller and you end up with
 floating point underflow errors. If the numbers get too small then you
 have to calculate with the logarithm of the probability and do
-additions rather than subtraction.</p>
+additions rather than subtraction.
+
+
+</span>
 <h2 id="laplacian-smoothing">Laplacian Smoothing</h2>
-<p>What if we have the message &rsquo;now money viagra&rsquo;, if we look at our data
-set the word &rsquo;now&rsquo; has not appeared in a spam message. There could be
+
+<span class="math align-center">
+
+What if we have the message 'now money viagra', if we look at our data
+set the word 'now' has not appeared in a spam message. There could be
 two reasons for this, one is that a spam message will never contain
-the word &rsquo;now&rsquo; (unlikely), or that we just do not have a spam message
-with &rsquo;now&rsquo; appearing in our training set. If we use model (A) and
+the word 'now' (unlikely), or that we just do not have a spam message
+with 'now' appearing in our training set. If we use model (A) and
 calculate the probability that our message is spam we get
-
-<span class="math align-center">$P(S|\mathrm{now}\land\mathrm{money}\land{viagra})$</span> equals
-
-<span class="math align-center">$$
+$P(S|\mathrm{now}\land\mathrm{money}\land{viagra})$ equals
+$$
 \frac{P(\mathrm{now}|S)P(\mathrm{money}|S)P(\mathrm{viagra}|S)P(S)}{P(\mathrm{now}\land\mathrm{money}\land\mathrm{viagra})}
-$$</span></p>
-<p>which equals
+$$
 
-<span class="math align-center">$$\frac{0 \cdot \frac{5}{6} \cdot
+which equals
+$$\frac{0 \cdot \frac{5}{6} \cdot
 \frac{2}{6}\frac{6}{10}}{P(\mathrm{now}\land\mathrm{money}\land\mathrm{viagra})}
-$$</span>
-So even though the words &lsquo;money&rsquo; and &lsquo;viagra&rsquo; are pretty good
-indicators of a message being spam we get probability 0.</p>
-<p>To get around this we add one to all our counts to avoid probability
+$$
+So even though the words 'money' and 'viagra' are pretty good
+indicators of a message being spam we get probability 0.
 
-<span class="math align-center">$0$</span> estimates and adjust the total count so as to avoid any
-probabilities greater than 
-<span class="math align-center">$1$</span>. So in model (A) if we are considering
 
-<span class="math align-center">$9$</span> words as a above then we estimate 
-<span class="math align-center">$P(\mathrm{now}|S)$</span> to be
-
-<span class="math align-center">$$
+To get around this we add one to all our counts to avoid probability
+$0$ estimates and adjust the total count so as to avoid any
+probabilities greater than $1$. So in model (A) if we are considering
+$9$ words as a above then we estimate $P(\mathrm{now}|S)$ to be
+$$
 \frac{0 + 1}{6 + 1}
-$$</span>
+$$ 
 instead of
-
-<span class="math align-center">$$
+$$
 \frac{0}{6}
-$$</span>
+$$
 If you had a word that appeared in all 6 of the spam tweets then you
-would get an estimate 
-<span class="math align-center">$\frac{6+1}{6+1}$</span> which would be 
-<span class="math align-center">$1$</span>.</p>
-<p>I leave it an exercise to work out the correct thing to do in model
-(B).</p>
+would get an estimate $\frac{6+1}{6+1}$ which would be $1$. 
+
+I leave it an exercise to work out the correct thing to do in model
+(B). 
+
+</span>
 <h2 id="feature-modelling">Feature Modelling</h2>
-<p>All most all machine learning algorithms require numbers and vectors as
+
+<span class="math align-center">
+
+All most all machine learning algorithms require numbers and vectors as
 inputs. Our Naive Bayes classifier does not really work with words,
 but feature vectors. There are different possible models, but we use
 something similar to model (A). First we take our data set and find
-the first 
-<span class="math align-center">$n$</span> most popular words. The most popular word a data set
-consisting of English messages is typically the word &rsquo;the&rsquo;. You can
-improve things by filtering out the most popular words that don&rsquo;t
+the first $n$ most popular words. The most popular word a data set
+consisting of English messages is typically the word 'the'. You can
+improve things by filtering out the most popular words that don't
 contribute much a message being (referred to as stop words). We will
-not worry about that here. But a word like &rsquo;the&rsquo; is equally likely to
+not worry about that here. But a word like 'the' is equally likely to
 appear in a spam tweet or a non spam tweet, so it is better to ignore
-it.</p>
-<p>Then we turn each message into a vector of length 
-<span class="math align-center">$n$</span> where each entry
-is 
-<span class="math align-center">$1$</span> or 
-<span class="math align-center">$0$</span>, and the 
-<span class="math align-center">$i$</span>th entry is 
-<span class="math align-center">$1$</span> if the message contains the
+it.
 
-<span class="math align-center">$i$</span>th most popular word. So in a typical English message data set
-&rsquo;the&rsquo; is the most popular and &rsquo;to&rsquo; is the second most popular word. So
-if our message contained the words &rsquo;to the&rsquo; then the first two entries
-of its feature vector would have the value 
-<span class="math align-center">$1$</span>.  
-<span class="math align-center">$$ f = (f_1, \ldots ,
-f_i, \ldots, f_n) $$</span> Where 
-<span class="math align-center">$f_i$</span> is 
-<span class="math align-center">$1$</span> if the 
-<span class="math align-center">$i$</span>th most popular word
 
-<span class="math align-center">$w_i$</span> occurs in the message and 
-<span class="math align-center">$0$</span> otherwise.</p>
-<p>It is easy to write a function takes a message and turns it into our
-feature vector. Given our training set we can estimate two
+
+Then we turn each message into a vector of length $n$ where each entry
+is $1$ or $0$, and the $i$th entry is $1$ if the message contains the
+$i$th most popular word. So in a typical English message data set
+'the' is the most popular and 'to' is the second most popular word. So
+if our message contained the words 'to the' then the first two entries
+of its feature vector would have the value $1$.  $$ f = (f_1, \ldots ,
+f_i, \ldots, f_n) $$ Where $f_i$ is $1$ if the $i$th most popular word
+$w_i$ occurs in the message and $0$ otherwise.
+
+It is easy to write a function takes a message and turns it into our
+feature vector. Given our training set we can estimate two 
 probabilities for our two classes 
-<span class="math align-center">$S$</span> and 
-<span class="math align-center">$\overline{S}$</span>,  
-<span class="math align-center">$P(w_i|S)$</span>, 
-<span class="math align-center">$P(\overline{w}_i|S)$</span>, 
-<span class="math align-center">$P(w_i| \overline{S})$</span> and 
-<span class="math align-center">$P(\overline{w}_i |
-\overline{S})$</span>, where 
-<span class="math align-center">$w_i$</span> is the even that word 
-<span class="math align-center">$i$</span> occurs in the
-message and 
-<span class="math align-center">$\overline{w}_i$</span> is the event that word 
-<span class="math align-center">$i$</span> does not occur
-in the message.</p>
-<p>In our example above we only have 
-<span class="math align-center">$9$</span> words in our data set and they
-appear in order of popularity as &lsquo;money&rsquo;, &lsquo;world&rsquo;, &lsquo;viagra&rsquo;,
-&lsquo;aardvark&rsquo;, &lsquo;heart&rsquo;, &lsquo;boondoogle&rsquo; , &lsquo;honey&rsquo;, &lsquo;back&rsquo; , &rsquo;now&rsquo;.  You have
+<span class="math align-center"> $S$ </span> and 
+<span class="math align-center"> $\neg S$ </span>,  $P(w_i|S)$, $P(\overline{w}_i|S)$, $P(w_i| \neg S)$ and $P(\overline{w}_i |
+\neg S)$, where $w_i$ is the even that word $i$ occurs in the
+message and $\overline{w}_i$ is the event that word $i$ does not occur
+in the message. 
+
+In our example above we only have $9$ words in our data set and they
+appear in order of popularity as 'money', 'world', 'viagra',
+'aardvark', 'heart', 'boondoogle' , 'honey', 'back' , 'now'.  You have
 to break ties (words that are equally popular) and you have to do it
-consistently.  So give the message &lsquo;aardvark money now&rsquo; its feature
-vector would be 
-<span class="math align-center">$$ f = (1,0,0,1,0,0,0,0,1) $$</span></p>
-<p>This vector 
-<span class="math align-center">$f$</span> corresponds to the event
+consistently.  So give the message 'aardvark money now' its feature
+vector would be $$ f = (1,0,0,1,0,0,0,0,1) $$
 
-<span class="math align-center">$$
+This vector $f$ corresponds to the event 
+$$
 w_1\overline{w}_2\overline{w}_3w_4\overline{w}_5\overline{w}_6\overline{w}_7w_8
-$$</span></p>
-<p>So to use Bayes&rsquo; theorem to work on the probability that the tweet
-is is spam we have to
-calculate the quantity
+$$
 
-<span class="math align-center">$$
+So to use Bayes' theorem to work on the probability that the tweet
+is is spam we have to
+calculate the quantity 
+$$
 \frac{P(w_1\overline{w}_2\overline{w}_3w_4\overline{w}_5\overline{w}_6\overline{w}_7\overline{w}_8|S)P(S)}{P(w_1\overline{w}_2\overline{w}_3w_4\overline{w}_5\overline{w}_6\overline{w}_7\overline{w}_8
 w_9)}
-$$</span></p>
-<p>Calculating
+$$
 
-<span class="math align-center">$P(w_1\overline{w}_2\overline{w}_3w_4\overline{w}_5\overline{w}_6\overline{w}_7\overline{w}_8|S)$</span>
+Calculating
+$P(w_1\overline{w}_2\overline{w}_3w_4\overline{w}_5\overline{w}_6\overline{w}_7\overline{w}_8|S)$
 is easily done by the independence assumption. It is the product of
 the terms
-
-<span class="math align-center">$P(w_1|S)$</span>,
-<span class="math align-center">$P(\overline{w}_2|S)$</span>,
-<span class="math align-center">$P(\overline{w}_3|S)$</span>,
-<span class="math align-center">$P(w_4|S)$</span>,
-<span class="math align-center">$P(\overline{w}_5|S)$</span>,
-<span class="math align-center">$P(\overline{w}_6|S)$</span>,
-<span class="math align-center">$P(\overline{w}_7|S)$</span>
-and 
-<span class="math align-center">$P(\overline{w}_8|S)$</span>. All these values are easily estimated from
-our data set. For example 
-<span class="math align-center">$P(\overline{w}_3|S)$</span> is the probability
-that the word &lsquo;money&rsquo; does not appear in a spam tweet. We had 6 spam
+$P(w_1|S)$,$P(\overline{w}_2|S)$,$P(\overline{w}_3|S)$,$P(w_4|S)$,$P(\overline{w}_5|S)$,$P(\overline{w}_6|S)$,$P(\overline{w}_7|S)$
+and $P(\overline{w}_8|S)$. All these values are easily estimated from
+our data set. For example $P(\overline{w}_3|S)$ is the probability
+that the word 'money' does not appear in a spam tweet. We had 6 spam
 tweets and 5 of them contained the word money and so we get that
-
-<span class="math align-center">$P(\overline{w}_3|S)$</span> equals 
-<span class="math align-center">$1/6$</span>.</p>
+$P(\overline{w}_3|S)$ equals $1/6$.
+</span>
 <h2 id="model-a-and-feature-vectors">Model (A) and Feature Vectors</h2>
-<p>If you go back to model (A) and you try to estimate if a message is
-spam or not, then using the same message we would only need to
-calculate
 
-<span class="math align-center">$$
+<span class="math align-center">
+
+If you go back to model (A) and you try to estimate if a message is
+spam or not, then using the same message we would only need to
+calculate 
+$$
 \frac{P(w_1|S)(w_4|S)P(w_9|S)P(S)}{P(w_1\land w_w \land w_3)}
-$$</span>
-since  
-<span class="math align-center">$w_1$</span> is &lsquo;money&rsquo;, 
-<span class="math align-center">$w_4$</span> is &lsquo;aardvark&rsquo; and 
-<span class="math align-center">$w_9$</span> is &rsquo;now&rsquo;.   We
+$$
+since  $w_1$ is 'money', $w_4$ is 'aardvark' and $w_9$ is 'now'.   We
 are throwing away information about the words that do not occur in the
 tweet. Does this matter? More importantly is this calculation
-incorrect.</p>
-<p>To simply things imagine that we only had two words in our feature
-vector 
-<span class="math align-center">$W_1$</span> and 
-<span class="math align-center">$W_2$</span>. Then given a message there are 4 possible
-atomic events:</p>
+incorrect. 
 
-<span class="math align-center">$$ W_1 W_2, W_1 \overline{W}_2, \overline{W}_1 W_2, \overline{W}_1
-\overline{W_2}$$</span>
-<p>What do we mean when we write 
-<span class="math align-center">$P(W_1|S)$</span>? Looking at our atomic
+To simply things imagine that we only had two words in our feature
+vector $W_1$ and $W_2$. Then given a message there are 4 possible
+atomic events:
+
+$$ W_1 W_2, W_1 \overline{W}_2, \overline{W}_1 W_2, \overline{W}_1
+\overline{W_2}$$
+
+What do we mean when we write $P(W_1|S)$? Looking at our atomic
 events we actually mean
-
-<span class="math align-center">$$
+$$
 P( W_1 W_2 \lor W_1\overline{W}_2|S)
-$$</span>
+$$
 Any event is a union of the atomic events in your probability model.
-Using the independence assumption for 
-<span class="math align-center">$W_1$</span> and 
-<span class="math align-center">$W_2$</span> and the basic
-rule of probability that 
-<span class="math align-center">$P(A\lor B)$</span> equals 
-<span class="math align-center">$P(A)+P(B)$</span> when then
-events 
-<span class="math align-center">$A$</span> and 
-<span class="math align-center">$B$</span> are independent atomic events we get that
-
-<span class="math align-center">$P(W_1|S)$</span> equals 
-<span class="math align-center">$P( W_1 W_2 \lor W_1\overline{W}_2|S)$</span> which equals
-
-<span class="math align-center">$$
+Using the independence assumption for $W_1$ and $W_2$ and the basic
+rule of probability that $P(A\lor B)$ equals $P(A)+P(B)$ when then
+events $A$ and $B$ are independent atomic events we get that
+$P(W_1|S)$ equals $P( W_1 W_2 \lor W_1\overline{W}_2|S)$ which equals
+$$
 P(W_1|S)P(W_2|S) + 
-P(W_1|S)P(\overline{W}_2|S)$$</span> refactoring gives
-
-<span class="math align-center">$$P(W_1|S)(P(W_2|S) + 
+P(W_1|S)P(\overline{W}_2|S)$$ refactoring gives
+$$P(W_1|S)(P(W_2|S) + 
 P(\overline{W}_2|S))
-$$</span>
-and since 
-<span class="math align-center">$P(W_2|S) +  P(\overline{W}_2|S)$</span> equals 
-<span class="math align-center">$1$</span> we get
+$$
+and since $P(W_2|S) +  P(\overline{W}_2|S)$ equals $1$ we get
+$P(W_1|S)$. 
 
-<span class="math align-center">$P(W_1|S)$</span>.</p>
-<p>So if we ignore any information about 
-<span class="math align-center">$W_2$</span> then we get a factor of
-
-<span class="math align-center">$1$</span>. If we use what information we have about 
-<span class="math align-center">$W_2$</span> then we get a
+So if we ignore any information about $W_2$ then we get a factor of
+$1$. If we use what information we have about $W_2$ then we get a
 better estimate for the probability. You can show that the same
 applies if you have lots of words in your feature vector. So our
 original model (A) is not wrong, but the feature vector model where we
 take into account if a word appears or not when we are estimating the
 probabilities and gives a better estimate if the word is spam or
 not. Note the above argument depends on our independence assumption
-(the naive in Naive Bayes).</p>
-<p>If you did not look at any words then the only information that you
-would have is 
-<span class="math align-center">$P(S)$</span> or 
-<span class="math align-center">$P(\overline{S})$</span> as you look at more words in
-your feature you get a better estimate of the probability that the
-message is spam or not.</p>
-<h2 id="model-b-with--multiple-words">Model (B) with  multiple words</h2>
-<p>How do you calculate the probability that the message &lsquo;money money
-boondoggle&rsquo; is spam? We have already assumed that the probabilities of
-a words occurring in a spam or non-spam tweet are independent. If we
-also assume that the probability of a word appearing 
-<span class="math align-center">$k$</span> times is
+(the naive in Naive Bayes). 
 
-<span class="math align-center">$$
+If you did not look at any words then the only information that you
+would have is $P(S)$ or $P(\neg S)$ as you look at more words in
+your feature you get a better estimate of the probability that the
+message is spam or not.
+
+
+</span>
+<h2 id="model-b-with--multiple-words">Model (B) with  multiple words</h2>
+
+<span class="math align-center">
+
+How do you calculate the probability that the message 'money money
+boondoggle' is spam? We have already assumed that the probabilities of
+a words occurring in a spam or non-spam tweet are independent. If we
+also assume that the probability of a word appearing $k$ times is
+$$
 P(w^k|S) = P(w|S)^k
-$$</span>
+$$
 That is each occurrence is independent, then we can calculate the
 probability that a message containing the multiple occurrences of a
 word is spam or not, but only if you use model (B) to calculate the
 probabilities.  You should not mix up model (A) and model (B). It does
 not make sense in model (A) to ask what the probability of a word
-occurring 
-<span class="math align-center">$k$</span> times in a spam message is. We can only ask if a m
-message contains the word or not.</p>
+occurring $k$ times in a spam message is. We can only ask if a m
+message contains the word or not. 
+
+
+<div class="box notices cstyle info">
+  <div class="box-label"><i class="fa-fw fas fa-info-circle"></i> Take Home Message</div>
+  <div class="box-content">
+
 <p>If you want to take into account multiple words then do not use model
 (A) to calculate your probabilities.</p>
-<h2 id="model-b-with-multiple-words-and-feature-vectors">Model (B) with multiple words and feature vectors.</h2>
-<p>The feature vector approach for model (A) considered vectors where the
-entries are 
-<span class="math align-center">$0$</span> or 
-<span class="math align-center">$1$</span>. Given a feature vector 
-<span class="math align-center">$f$</span> the entry 
-<span class="math align-center">$i$</span>th
-entry is 
-<span class="math align-center">$1$</span> if the word appears in the message and 
-<span class="math align-center">$0$</span> otherwise.</p>
-<p>Instead we would have a feature vector where the 
-<span class="math align-center">$ith$</span> entry tells you
-how many times the word appears in the message. Thus for our message &lsquo;money money
-boondoggle&rsquo; its feature vector would be (using the same ordering as
-above):
+</div>
+</div>
 
-<span class="math align-center">$$
+</span>
+<h2 id="model-b-with-multiple-words-and-feature-vectors">Model (B) with multiple words and feature vectors.</h2>
+
+<span class="math align-center">
+
+The feature vector approach for model (A) considered vectors where the
+entries are $0$ or $1$. Given a feature vector $f$ the entry $i$th
+entry is $1$ if the word appears in the message and $0$ otherwise. 
+
+Instead we would have a feature vector where the $ith$ entry tells you
+how many times the word appears in the message. Thus for our message 'money money
+boondoggle' its feature vector would be (using the same ordering as
+above):
+$$
 (2,0,0,0,0,1,0,0,0)
-$$</span></p>
-<p>Again it is not hard to use the information that a word appears 
-<span class="math align-center">$0$</span>
-times.</p>
+$$
+ 
+Again it is not hard to use the information that a word appears $0$
+times.
+</span>
 <h2 id="take-home-messages">Take home messages</h2>
 <ul>
 <li>
@@ -912,12 +874,12 @@ Bayes.</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1709192834" defer></script>
-        <script src="/js/lunr/lunr.min.js?1709192834" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1709192834" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1709192834" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1709192834" defer></script>
-        <script src="/js/search.js?1709192834" defer></script>
+        <script src="/js/auto-complete.js?1709203213" defer></script>
+        <script src="/js/lunr/lunr.min.js?1709203213" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1709203213" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1709203213" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1709203213" defer></script>
+        <script src="/js/search.js?1709203213" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -1004,8 +966,8 @@ Bayes.</p>
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1709192834" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1709192834" defer></script>
+    <script src="/js/clipboard.min.js?1709203213" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1709203213" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -1034,7 +996,7 @@ Bayes.</p>
       }
       useMathJax( JSON.parse("{}") );
     </script>
-    <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js?1709192834"></script>
-    <script src="/js/theme.js?1709192834" defer></script>
+    <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js?1709203213"></script>
+    <script src="/js/theme.js?1709203213" defer></script>
   </body>
 </html>
