@@ -1,13 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Lecture 2: Linear Regression as Machine Learning on Introduction to ML 1D034 homepage.</title>
-    <link>https://intro-ml-1dl034-uu-se.github.io/lectures/lecture2/index.html</link>
-    <description>Recent content in Lecture 2: Linear Regression as Machine Learning on Introduction to ML 1D034 homepage.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor>
-    <webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster>
-    <atom:link href="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture2/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lecture 2: Linear Regression as Machine Learning :: Introduction to ML 1D034 homepage.</title><link>https://intro-ml-1dl034-uu-se.github.io/lectures/lecture2/index.html</link><description>Today’s Topics Linear Regression Linear Regression as a machine learning algorithm. Machine learning algorithms and hypothesises. In short a machine learning find the best hypothesis that explains that data. A cost function (or an error function, or a loss function) measure how far way a hypothesis is from explaining the data: the smaller the cost, the better the hypothesis.
+Ideally you want an algorithm takes the training data and gives you the hypothesis that with the smallest cost value. With linear regression this is possible (using linear algebra), but in general it is not possible.</description><generator>Hugo</generator><language>en</language><managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor><webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster><atom:link href="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture2/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

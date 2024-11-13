@@ -1,13 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Information on the Assignments on Introduction to ML 1D034 homepage.</title>
-    <link>https://intro-ml-1dl034-uu-se.github.io/labs/index.html</link>
-    <description>Recent content in Information on the Assignments on Introduction to ML 1D034 homepage.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor>
-    <webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster>
-    <atom:link href="https://intro-ml-1dl034-uu-se.github.io/labs/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Information on the Assignments :: Introduction to ML 1D034 homepage.</title><link>https://intro-ml-1dl034-uu-se.github.io/labs/index.html</link><description>Assignment This course has four theoretical and four practical assignments that are Python notebooks that you should complete. The practical notebooks introduce you to tools such as pandas, NumPy and scikit-learn. The theoretical notebooks help you to deepen you knowledge of some of the topics covered in the course.
+The assignments are available publicly on github.
+Project The project will be hosted on kaggle and will only available to students registered on the course. All information about the project can be found on studium.</description><generator>Hugo</generator><language>en</language><managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor><webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster><atom:link href="https://intro-ml-1dl034-uu-se.github.io/labs/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

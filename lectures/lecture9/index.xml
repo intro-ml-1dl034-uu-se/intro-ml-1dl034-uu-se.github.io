@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Lecture 9: Principle Component Analysis and Preprocessing on Introduction to ML 1D034 homepage.</title>
-    <link>https://intro-ml-1dl034-uu-se.github.io/lectures/lecture9/index.html</link>
-    <description>Recent content in Lecture 9: Principle Component Analysis and Preprocessing on Introduction to ML 1D034 homepage.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor>
-    <webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster>
-    <atom:link href="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture9/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lecture 9: Principle Component Analysis and Preprocessing :: Introduction to ML 1D034 homepage.</title><link>https://intro-ml-1dl034-uu-se.github.io/lectures/lecture9/index.html</link><description>Today’s Topics As we have seen before it is often a good idea to do some pre-processing of your input data. Sometimes there are linear relationships hidden in the data, and if you do not remove or discover them then your machine learning algorithm will be trying to learn these linear relationships. In linear algebra, principle component analysis (PCA) is a well established method of reducing the dimension of a data set. It uses eigenvalues and eigenvectors to uncover hidden linear relationships in your data-set. For this course you do not need to know how to actually compute eigenvalues and eigenvectors by hand, but you should understand the definition and what is going on.</description><generator>Hugo</generator><language>en</language><managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor><webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster><atom:link href="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture9/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

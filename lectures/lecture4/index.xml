@@ -1,13 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Lecture 4: Logistic Regression as Machine Learning on Introduction to ML 1D034 homepage.</title>
-    <link>https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.html</link>
-    <description>Recent content in Lecture 4: Logistic Regression as Machine Learning on Introduction to ML 1D034 homepage.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor>
-    <webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster>
-    <atom:link href="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage.</title><link>https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.html</link><description>Today’s Topics Today’s slides.
+Logistic Regression Logistic regression, overfitting and regularisation. Again Logistic regression is an algorithm that comes from statistics, but it can also seen as a machine learning algorithm. The hypothesis is very similar to linear regression is it a set of values that defines a linear function. The difference between logistic regression and linear regression is the linear function goes through a logistic function that works as a threshold function. Unlike linear regression it is not possible to solve the model exactly, and gradient descent is necessary.</description><generator>Hugo</generator><language>en</language><managingEditor>justin.pearson@it.uu.se (Justin Pearson)</managingEditor><webMaster>justin.pearson@it.uu.se (Justin Pearson)</webMaster><atom:link href="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

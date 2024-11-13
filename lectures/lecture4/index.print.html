@@ -1,170 +1,36 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.3">
-    <meta name="generator" content="Relearn 5.24.3+tip">
-    <meta name="description" content="">
-    <meta name="author" content="Justin Pearson">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
-    <meta name="twitter:description" content="Today&rsquo;s Topics Today&rsquo;s slides.
-Logistic Regression Logistic regression, overfitting and regularisation. Again Logistic regression is an algorithm that comes from statistics, but it can also seen as a machine learning algorithm. The hypothesis is very similar to linear regression is it a set of values that defines a linear function. The difference between logistic regression and linear regression is the linear function goes through a logistic function that works as a threshold function.">
-    <meta property="og:title" content="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
-    <meta property="og:description" content="Today&rsquo;s Topics Today&rsquo;s slides.
-Logistic Regression Logistic regression, overfitting and regularisation. Again Logistic regression is an algorithm that comes from statistics, but it can also seen as a machine learning algorithm. The hypothesis is very similar to linear regression is it a set of values that defines a linear function. The difference between logistic regression and linear regression is the linear function goes through a logistic function that works as a threshold function.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.html">
-    <meta property="article:section" content="Lectures :: Introduction to ML 1D034 homepage.">
-    <meta property="og:site_name" content="Introduction to ML 1D034 homepage.">
-    <title>Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage.</title>
-    <link href="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.html" rel="canonical" type="text/html" title="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
-    <link href="/lectures/lecture4/index.xml" rel="alternate" type="application/rss+xml" title="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage.">
-    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1709398718" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709398718" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1709398718" rel="stylesheet">
-    <link href="/css/auto-complete.css?1709398718" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1709398718" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1709398718" rel="stylesheet">
-    <link href="/css/fonts.css?1709398718" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1709398718" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1709398718" rel="stylesheet">
-    <link href="/css/theme-blue.css?1709398718" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1709398718" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/variant.css?1709398718" rel="stylesheet">
-    <link href="/css/print.css?1709398718" rel="stylesheet" media="print">
-    <link href="/css/format-print.css?1709398718" rel="stylesheet">
-    <link href="/css/ie.css?1709398718" rel="stylesheet">
-    <script src="/js/url.js?1709398718"></script>
-    <script src="/js/variant.js?1709398718"></script>
-    <script>
-      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
-      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
-      window.index_js_url="/index.search.js";
-      var root_url="/";
-      var baseUri=root_url.replace(/\/$/, '');
-      window.relearn = window.relearn || {};
-      window.relearn.baseUriFull='https:\/\/intro-ml-1dl034-uu-se.github.io/';
-      // variant stuff
-      window.relearn.themeVariantModifier='';
-      window.variants && variants.init( [ 'blue' ] );
-      // translations
-      window.T_Copy_to_clipboard = `Copy to clipboard`;
-      window.T_Copied_to_clipboard = `Copied to clipboard!`;
-      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
-      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
-      window.T_Reset_view = `Reset view`;
-      window.T_View_reset = `View reset!`;
-      window.T_No_results_found = `No results found for "{0}"`;
-      window.T_N_results_found = `{1} results found for "{0}"`;
-    </script>
-  </head>
-  <body class="mobile-support print" data-url="/lectures/lecture4/index.html">
-    <div id="R-body" class="default-animation">
-      <div id="R-body-overlay"></div>
-      <nav id="R-topbar">
-        <div class="topbar-wrapper">
-          <div class="topbar-sidebar-divider"></div>
-          <div class="topbar-area topbar-area-start" data-area="start">
-            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
-            </div>
-          </div>
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Introduction to Machine Learning 1DL034</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/lectures/index.html"><span itemprop="name">Lectures</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Lecture 4: Logistic Regression as Machine Learning</span><meta itemprop="position" content="3"></li>
-          </ol>
-          <div class="topbar-area topbar-area-end" data-area="end">
-          </div>
-        </div>
-      </nav>
-      <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable default" tabindex="-1">
-        <div class="flex-block-wrapper">
-          <article class="default">
-            <header class="headline">
-            </header>
-<h1 id="lecture-4-logistic-regression-as-machine-learning">Lecture 4: Logistic Regression as Machine Learning</h1>
-
-<h2 id="todays-topics">Today&rsquo;s Topics</h2>
-<p>Today&rsquo;s
-<a href="https://user.it.uu.se/~justin/Assets/Teaching/IntroML/Slides/lecture4.pdf" target="_blank">slides</a>.</p>
-<h3 id="logistic-regression">Logistic Regression</h3>
-<p>Logistic regression, overfitting and regularisation.  Again Logistic
+<!doctype html><html lang=en dir=ltr itemscope itemtype=http://schema.org/Article><head><meta charset=utf-8><meta name=viewport content="height=device-height,width=device-width,initial-scale=1,minimum-scale=1"><meta name=generator content="Hugo 0.138.0"><meta name=generator content="Relearn 7.1.1"><meta name=description content="Today’s Topics Today’s slides.
+Logistic Regression Logistic regression, overfitting and regularisation. Again Logistic regression is an algorithm that comes from statistics, but it can also seen as a machine learning algorithm. The hypothesis is very similar to linear regression is it a set of values that defines a linear function. The difference between logistic regression and linear regression is the linear function goes through a logistic function that works as a threshold function. Unlike linear regression it is not possible to solve the model exactly, and gradient descent is necessary."><meta name=author content="Justin Pearson"><meta name=twitter:card content="summary"><meta name=twitter:title content="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage."><meta name=twitter:description content="Today’s Topics Today’s slides.
+Logistic Regression Logistic regression, overfitting and regularisation. Again Logistic regression is an algorithm that comes from statistics, but it can also seen as a machine learning algorithm. The hypothesis is very similar to linear regression is it a set of values that defines a linear function. The difference between logistic regression and linear regression is the linear function goes through a logistic function that works as a threshold function. Unlike linear regression it is not possible to solve the model exactly, and gradient descent is necessary."><meta property="og:url" content="https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.html"><meta property="og:site_name" content="Introduction to ML 1D034 homepage."><meta property="og:title" content="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage."><meta property="og:description" content="Today’s Topics Today’s slides.
+Logistic Regression Logistic regression, overfitting and regularisation. Again Logistic regression is an algorithm that comes from statistics, but it can also seen as a machine learning algorithm. The hypothesis is very similar to linear regression is it a set of values that defines a linear function. The difference between logistic regression and linear regression is the linear function goes through a logistic function that works as a threshold function. Unlike linear regression it is not possible to solve the model exactly, and gradient descent is necessary."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="Lectures"><meta itemprop=name content="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage."><meta itemprop=description content="Today’s Topics Today’s slides.
+Logistic Regression Logistic regression, overfitting and regularisation. Again Logistic regression is an algorithm that comes from statistics, but it can also seen as a machine learning algorithm. The hypothesis is very similar to linear regression is it a set of values that defines a linear function. The difference between logistic regression and linear regression is the linear function goes through a logistic function that works as a threshold function. Unlike linear regression it is not possible to solve the model exactly, and gradient descent is necessary."><meta itemprop=wordCount content="351"><title>Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage.</title>
+<link href=https://intro-ml-1dl034-uu-se.github.io/lectures/lecture4/index.html rel=canonical type=text/html title="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage."><link href=/lectures/lecture4/index.xml rel=alternate type=application/rss+xml title="Lecture 4: Logistic Regression as Machine Learning :: Introduction to ML 1D034 homepage."><link href=/css/fontawesome-all.min.css?1731513417 rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fontawesome-all.min.css?1731513417 rel=stylesheet></noscript><link href=/css/nucleus.css?1731513417 rel=stylesheet><link href=/css/auto-complete.css?1731513417 rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/auto-complete.css?1731513417 rel=stylesheet></noscript><link href=/css/perfect-scrollbar.min.css?1731513417 rel=stylesheet><link href=/css/fonts.css?1731513417 rel=stylesheet media=print onload='this.media="all",this.onload=null'><noscript><link href=/css/fonts.css?1731513417 rel=stylesheet></noscript><link href=/css/theme.css?1731513417 rel=stylesheet><link href=/css/theme-blue.css?1731513417 rel=stylesheet id=R-variant-style><link href=/css/chroma-learn.css?1731513417 rel=stylesheet id=R-variant-chroma-style><link href=/css/print.css?1731513417 rel=stylesheet media=print><link href=/css/format-print.css?1731513417 rel=stylesheet><script src=/js/variant.js?1731513417></script><script>window.relearn=window.relearn||{},window.relearn.relBasePath="../..",window.relearn.relBaseUri="../..",window.relearn.absBaseUri="https://intro-ml-1dl034-uu-se.github.io",window.relearn.disableAnchorCopy=!1,window.relearn.disableAnchorScrolling=!1,window.variants&&variants.init(["blue"]),window.T_Copy_to_clipboard=`Copy to clipboard`,window.T_Copied_to_clipboard=`Copied to clipboard!`,window.T_Copy_link_to_clipboard=`Copy link to clipboard`,window.T_Link_copied_to_clipboard=`Copied link to clipboard!`,window.T_Reset_view=`Reset view`,window.T_View_reset=`View reset!`,window.T_No_results_found=`No results found for "{0}"`,window.T_N_results_found=`{1} results found for "{0}"`</script></head><body class="mobile-support print" data-url=/lectures/lecture4/index.html><div id=R-body class=default-animation><div id=R-body-overlay></div><nav id=R-topbar><div class=topbar-wrapper><div class=topbar-sidebar-divider></div><div class="topbar-area topbar-area-start" data-area=start><div class="topbar-button topbar-button-sidebar" data-content-empty=disable data-width-s=show data-width-m=hide data-width-l=hide><button class=topbar-control onclick=toggleNav() type=button title="Menu (CTRL+ALT+n)"><i class="fa-fw fas fa-bars"></i></button></div></div><ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype=http://schema.org/BreadcrumbList><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><a itemprop=item href=/index.html><span itemprop=name>Introduction to Machine Learning 1DL034</span></a><meta itemprop=position content="1">&nbsp;>&nbsp;</li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><a itemprop=item href=/lectures/index.html><span itemprop=name>Lectures</span></a><meta itemprop=position content="2">&nbsp;>&nbsp;</li><li itemscope itemtype=https://schema.org/ListItem itemprop=itemListElement><span itemprop=name>Lecture 4</span><meta itemprop=position content="3"></li></ol><div class="topbar-area topbar-area-end" data-area=end><div class="topbar-button topbar-button-print" data-content-empty=disable data-width-s=area-more data-width-m=show data-width-l=show><a class=topbar-control href=/lectures/lecture4/index.print.html title="Print whole chapter (CTRL+ALT+p)"><i class="fa-fw fas fa-print"></i></a></div><div class="topbar-button topbar-button-more" data-content-empty=hide data-width-s=show data-width-m=show data-width-l=show><button class=topbar-control onclick=toggleTopbarFlyout(this) type=button title=More><i class="fa-fw fas fa-ellipsis-v"></i></button><div class=topbar-content><div class=topbar-content-wrapper><div class="topbar-area topbar-area-more" data-area=more></div></div></div></div></div></div></nav><div id=R-main-overlay></div><main id=R-body-inner class="highlightable lectures" tabindex=-1><div class=flex-block-wrapper><article class=default><header class=headline></header><h1 id=lecture-4-logistic-regression-as-machine-learning>Lecture 4: Logistic Regression as Machine Learning</h1><h2 id=todays-topics>Today&rsquo;s Topics</h2><p>Today&rsquo;s
+<a href=https://user.it.uu.se/~justin/Assets/Teaching/IntroML/Slides/lecture4.pdf rel=external target=_blank>slides</a>.</p><h3 id=logistic-regression>Logistic Regression</h3><p>Logistic regression, overfitting and regularisation. Again Logistic
 regression is an algorithm that comes from statistics, but it can also
 seen as a machine learning algorithm. The hypothesis is very similar
 to linear regression is it a set of values that defines a linear
 function. The difference between logistic regression and linear
 regression is the linear function goes through a logistic function
-that works as a threshold function.  Unlike linear regression it is
+that works as a threshold function. Unlike linear regression it is
 not possible to solve the model exactly, and gradient descent is
-necessary.</p>
-<p>There are a lot of ways of
-thinking about how logistic regression works.</p>
-<ul>
-<li>As a modification of linear regression to get $0$ or $1$ values to
+necessary.</p><p>There are a lot of ways of
+thinking about how logistic regression works.</p><ul><li>As a modification of linear regression to get $0$ or $1$ values to
 divide the data set into two halves, or two find a separating
-hyperplane between the two classes.</li>
-<li>As an  estimator of the probability that point begins to one class
-or another.</li>
-<li>As a single neuron. You can see logistic regression as the beginning
-of neural networks.</li>
-</ul>
-<h3 id="overfitting-and-regularisation">Overfitting and Regularisation</h3>
-<p>Both linear and logistic regression can be improved with a
+hyperplane between the two classes.</li><li>As an estimator of the probability that point begins to one class
+or another.</li><li>As a single neuron. You can see logistic regression as the beginning
+of neural networks.</li></ul><h3 id=overfitting-and-regularisation>Overfitting and Regularisation</h3><p>Both linear and logistic regression can be improved with a
 regularisation term that avoids overfitting. You should try to begin
 to understand why overfitting is a problem and some strategies for
-avoiding it.</p>
-<h2 id="reading-guide">Reading Guide</h2>
-<h3 id="logistic-regression-1">Logistic Regression</h3>
-<ul>
-<li><a href="http://themlbook.com/" target="_blank">Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" target="_blank">Chapter
+avoiding it.</p><h2 id=reading-guide>Reading Guide</h2><h3 id=logistic-regression-1>Logistic Regression</h3><ul><li><a href=http://themlbook.com/ rel=external target=_blank>Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" rel=external target=_blank>Chapter
 3</a>
-section 3.2.</li>
-</ul>
-<h3 id="overfitting-and-regularisation-1">Overfitting and Regularisation</h3>
-<ul>
-<li><a href="http://themlbook.com/" target="_blank">Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" target="_blank">Chapter
+section 3.2.</li></ul><h3 id=overfitting-and-regularisation-1>Overfitting and Regularisation</h3><ul><li><a href=http://themlbook.com/ rel=external target=_blank>Hundred-Page Machine Learning Book</a> <a href="https://www.dropbox.com/s/qiq2c85cle9ydb6/Chapter3.pdf?dl=0" rel=external target=_blank>Chapter
 3</a>
-section 3.1.2 and <a href="https://www.dropbox.com/s/nije38rerpfa18o/Chapter5.pdf?dl=0" target="_blank">Chapter 5</a> sections 5.4 and 5.5.</li>
-</ul>
-<h3 id="multiclass-classification">Multiclass classification.</h3>
-<ul>
-<li><a href="https://machinelearningmastery.com/one-vs-rest-and-one-vs-one-for-multi-class-classification/" target="_blank">One-vs-Rest and
+section 3.1.2 and <a href="https://www.dropbox.com/s/nije38rerpfa18o/Chapter5.pdf?dl=0" rel=external target=_blank>Chapter 5</a> sections 5.4 and 5.5.</li></ul><h3 id=multiclass-classification>Multiclass classification.</h3><ul><li><a href=https://machinelearningmastery.com/one-vs-rest-and-one-vs-one-for-multi-class-classification/ rel=external target=_blank>One-vs-Rest and
 One-vs-One</a>
-an excellent article by <a href="https://machinelearningmastery.com/about/" target="_blank">Jason Brownlee</a>.</li>
-</ul>
-<h3 id="confusion-matrices">Confusion Matrices</h3>
-<ul>
-<li>Again the <a href="http://themlbook.com/" target="_blank">Hundred-Page Machine Learning
-Book</a> <a href="https://www.dropbox.com/s/nije38rerpfa18o/Chapter5.pdf?dl=0" target="_blank">Chapter
+an excellent article by <a href=https://machinelearningmastery.com/about/ rel=external target=_blank>Jason Brownlee</a>.</li></ul><h3 id=confusion-matrices>Confusion Matrices</h3><ul><li>Again the <a href=http://themlbook.com/ rel=external target=_blank>Hundred-Page Machine Learning
+Book</a> <a href="https://www.dropbox.com/s/nije38rerpfa18o/Chapter5.pdf?dl=0" rel=external target=_blank>Chapter
 5</a>
-section  5.6 (but not 5.6.5 or 5.6.4).</li>
-</ul>
-<h2 id="what-should-i-know-by-the-end-of-this-lecture">What should I know by the end of this lecture?</h2>
-<ul>
-<li>What is logistic regression and how does it differ from linear
-regression?</li>
-<li>What is the cost function? What does the logistic function do?</li>
-<li>How do I implement gradient descent for logistic regression?</li>
-<li>How does logistic regression relate to  log-odds and what is it
-relationship with probability.</li>
-<li>What is overfitting?</li>
-<li>How does the regularisation term work in linear and logistic
-regression and how does it avoid overfitting.</li>
-<li>How do you use a binary classifier for multi-class classification?
-What is one-vs-all classification?</li>
-<li>What is a confusion matrix?</li>
-</ul>
-
-            <footer class="footline">
-            </footer>
-          </article>
-
-        </div>
-      </main>
-    </div>
-    <script src="/js/clipboard.min.js?1709398718" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1709398718" defer></script>
-    <script src="/js/theme.js?1709398718" defer></script>
-  </body>
-</html>
+section 5.6 (but not 5.6.5 or 5.6.4).</li></ul><h2 id=what-should-i-know-by-the-end-of-this-lecture>What should I know by the end of this lecture?</h2><ul><li>What is logistic regression and how does it differ from linear
+regression?</li><li>What is the cost function? What does the logistic function do?</li><li>How do I implement gradient descent for logistic regression?</li><li>How does logistic regression relate to log-odds and what is it
+relationship with probability.</li><li>What is overfitting?</li><li>How does the regularisation term work in linear and logistic
+regression and how does it avoid overfitting.</li><li>How do you use a binary classifier for multi-class classification?
+What is one-vs-all classification?</li><li>What is a confusion matrix?</li></ul><footer class=footline></footer></article></div></main></div><script src=/js/clipboard.min.js?1731513417 defer></script><script src=/js/perfect-scrollbar.min.js?1731513417 defer></script><script src=/js/theme.js?1731513417 defer></script></body></html>
