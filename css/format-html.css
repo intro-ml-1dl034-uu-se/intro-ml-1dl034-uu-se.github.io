@@ -1,4 +1,140 @@
-:root[data-r-output-format='print'] {
+@media screen {
+:root:not([data-r-output-format='print']):not([data-r-theme-variant='my-custom-variant']):not([data-r-theme-variant='blue']),
+:root:not([data-r-output-format='print'])[data-r-theme-variant='blue'] {
+&:root {
+  /* blue */
+  --MAIN-TEXT-color: rgba(50, 50, 50, 1); /* Color of text by default */
+  --MAIN-TITLES-TEXT-color: rgba(94, 94, 94, 1); /* Color of titles h2-h3-h4-h5-h6 */
+  --MAIN-TITLES-H1-TEXT-color: rgba(34, 34, 34, 1); /* text color of h1 titles */
+  --MAIN-LINK-color: rgba(28, 144, 243, 1); /* Color of links */
+  --MAIN-LINK-HOVER-color: rgba(22, 122, 208, 1); /* Color of hovered links */
+  --MAIN-BG-color: rgba(255, 255, 255, 1); /* color of text by default */
+
+  --CODE-theme: learn; /* name of the chroma stylesheet file */
+  --CODE-BLOCK-color: rgba(226, 228, 229, 1); /* fallback color for code text */
+  --CODE-BLOCK-BG-color: rgba(40, 42, 54, 1); /* fallback color for code background */
+  --CODE-BLOCK-BORDER-color: rgba(40, 42, 54, 1); /* color of block code border */
+  --CODE-INLINE-color: rgba(94, 94, 94, 1); /* color for inline code text */
+  --CODE-INLINE-BG-color: rgba(255, 250, 233, 1); /* color for inline code background */
+  --CODE-INLINE-BORDER-color: rgba(248, 232, 200, 1); /* color of inline code border */
+
+  --MENU-HOME-LINK-color: rgba(45, 54, 63, 1); /* Color of the home button text */
+  --MENU-HOME-LINK-HOVER-color: rgba(0, 0, 0, 1); /* Color of the hovered home button text */
+
+  --MENU-HEADER-BG-color: rgba(28, 144, 243, 1); /* Background color of menu header */
+  --MENU-HEADER-BORDER-color: rgba(51, 161, 255, 1); /*Color of menu header border */
+
+  --MENU-SEARCH-color: rgba(255, 255, 255, 1); /* Color of search field text */
+  --MENU-SEARCH-BG-color: rgba(22, 122, 208, 1); /* Search field background color (by default borders + icons) */
+  --MENU-SEARCH-BORDER-color: rgba(51, 161, 255, 1); /* Override search field border color */
+
+  --MENU-SECTIONS-ACTIVE-BG-color: rgba(32, 39, 43, 1); /* Background color of the active section and its children */
+  --MENU-SECTIONS-BG-color: rgba(37, 44, 49, 1); /* Background color of other sections */
+  --MENU-SECTIONS-LINK-color: rgba(204, 204, 204, 1); /* Color of links in menu */
+  --MENU-SECTIONS-LINK-HOVER-color: rgba(230, 230, 230, 1); /* Color of links in menu, when hovered */
+  --MENU-SECTION-ACTIVE-CATEGORY-color: rgba(119, 119, 119, 1); /* Color of active category text */
+  --MENU-SECTION-ACTIVE-CATEGORY-BG-color: rgba(255, 255, 255, 1); /* Color of background for the active category (only) */
+
+  --MENU-VISITED-color: rgba(28, 144, 243, 1); /* Color of 'page visited' icons in menu */
+  --MENU-SECTION-SEPARATOR-color: rgba(32, 39, 43, 1); /* Color of <hr> separator in menu */
+
+  /* base styling for boxes */
+  --BOX-CAPTION-color: rgba(255, 255, 255, 1); /* color of the title text */
+  --BOX-BG-color: rgba(255, 255, 255, 0.833); /* color of the content background */
+  --BOX-TEXT-color: rgba(16, 16, 16, 1); /* fixed color of the content text */
+}
+
+/* based on base16-snazzy */
+/* Background */ .bg { color: #e2e4e5; background-color: #282a36; }
+/* PreWrapper */ .chroma { color: #e2e4e5; background-color: #282a36; }
+/* Other */ .chroma .x {  }
+/* Error */ .chroma .err { color: #ff5c57 }
+/* CodeLine */ .chroma .cl {  }
+/* LineLink */ .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+/* LineHighlight */ .chroma .hl { background-color: #505050 }
+/* LineNumbersTable */ .chroma .lnt { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Line */ .chroma .line { display: flex; }
+/* Keyword */ .chroma .k { color: #ff6ac1 }
+/* KeywordConstant */ .chroma .kc { color: #ff6ac1 }
+/* KeywordDeclaration */ .chroma .kd { color: #ff5c57 }
+/* KeywordNamespace */ .chroma .kn { color: #ff6ac1 }
+/* KeywordPseudo */ .chroma .kp { color: #ff6ac1 }
+/* KeywordReserved */ .chroma .kr { color: #ff6ac1 }
+/* KeywordType */ .chroma .kt { color: #9aedfe }
+/* Name */ .chroma .n {  }
+/* NameAttribute */ .chroma .na { color: #57c7ff }
+/* NameBuiltin */ .chroma .nb { color: #ff5c57 }
+/* NameBuiltinPseudo */ .chroma .bp {  }
+/* NameClass */ .chroma .nc { color: #f3f99d }
+/* NameConstant */ .chroma .no { color: #ff9f43 }
+/* NameDecorator */ .chroma .nd { color: #ff9f43 }
+/* NameEntity */ .chroma .ni {  }
+/* NameException */ .chroma .ne {  }
+/* NameFunction */ .chroma .nf { color: #57c7ff }
+/* NameFunctionMagic */ .chroma .fm {  }
+/* NameLabel */ .chroma .nl { color: #ff5c57 }
+/* NameNamespace */ .chroma .nn {  }
+/* NameOther */ .chroma .nx {  }
+/* NameProperty */ .chroma .py {  }
+/* NameTag */ .chroma .nt { color: #ff6ac1 }
+/* NameVariable */ .chroma .nv { color: #ff5c57 }
+/* NameVariableClass */ .chroma .vc { color: #ff5c57 }
+/* NameVariableGlobal */ .chroma .vg { color: #ff5c57 }
+/* NameVariableInstance */ .chroma .vi { color: #ff5c57 }
+/* NameVariableMagic */ .chroma .vm {  }
+/* Literal */ .chroma .l {  }
+/* LiteralDate */ .chroma .ld {  }
+/* LiteralString */ .chroma .s { color: #5af78e }
+/* LiteralStringAffix */ .chroma .sa { color: #5af78e }
+/* LiteralStringBacktick */ .chroma .sb { color: #5af78e }
+/* LiteralStringChar */ .chroma .sc { color: #5af78e }
+/* LiteralStringDelimiter */ .chroma .dl { color: #5af78e }
+/* LiteralStringDoc */ .chroma .sd { color: #5af78e }
+/* LiteralStringDouble */ .chroma .s2 { color: #5af78e }
+/* LiteralStringEscape */ .chroma .se { color: #5af78e }
+/* LiteralStringHeredoc */ .chroma .sh { color: #5af78e }
+/* LiteralStringInterpol */ .chroma .si { color: #5af78e }
+/* LiteralStringOther */ .chroma .sx { color: #5af78e }
+/* LiteralStringRegex */ .chroma .sr { color: #5af78e }
+/* LiteralStringSingle */ .chroma .s1 { color: #5af78e }
+/* LiteralStringSymbol */ .chroma .ss { color: #5af78e }
+/* LiteralNumber */ .chroma .m { color: #ff9f43 }
+/* LiteralNumberBin */ .chroma .mb { color: #ff9f43 }
+/* LiteralNumberFloat */ .chroma .mf { color: #ff9f43 }
+/* LiteralNumberHex */ .chroma .mh { color: #ff9f43 }
+/* LiteralNumberInteger */ .chroma .mi { color: #ff9f43 }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ff9f43 }
+/* LiteralNumberOct */ .chroma .mo { color: #ff9f43 }
+/* Operator */ .chroma .o { color: #ff6ac1 }
+/* OperatorWord */ .chroma .ow { color: #ff6ac1 }
+/* Punctuation */ .chroma .p {  }
+/* Comment */ .chroma .c { color: #78787e }
+/* CommentHashbang */ .chroma .ch { color: #78787e }
+/* CommentMultiline */ .chroma .cm { color: #78787e }
+/* CommentSingle */ .chroma .c1 { color: #78787e }
+/* CommentSpecial */ .chroma .cs { color: #78787e }
+/* CommentPreproc */ .chroma .cp { color: #78787e }
+/* CommentPreprocFile */ .chroma .cpf { color: #78787e }
+/* Generic */ .chroma .g {  }
+/* GenericDeleted */ .chroma .gd { color: #ff5c57 }
+/* GenericEmph */ .chroma .ge { text-decoration: underline }
+/* GenericError */ .chroma .gr { color: #ff5c57 }
+/* GenericHeading */ .chroma .gh { font-weight: bold }
+/* GenericInserted */ .chroma .gi { font-weight: bold }
+/* GenericOutput */ .chroma .go { color: #43454f }
+/* GenericPrompt */ .chroma .gp {  }
+/* GenericStrong */ .chroma .gs { font-style: italic }
+/* GenericSubheading */ .chroma .gu { font-weight: bold }
+/* GenericTraceback */ .chroma .gt {  }
+/* GenericUnderline */ .chroma .gl { text-decoration: underline }
+/* TextWhitespace */ .chroma .w {  }
+
+}
+}
+@media print {
 &:root {
   /* relearn-light */
   --PRIMARY-color: rgba(125, 201, 3, 1); /* brand primary color */
@@ -131,6 +267,7 @@
 /* TextWhitespace */ .chroma .w {  }
 
 }
+@media print {
 #R-sidebar {
   display: none;
 }
@@ -329,4 +466,6 @@ article {
 
 #R-body #R-body-inner > .flex-block-wrapper article.narrow > .article-subheading {
   margin-top: 0;
+}
+
 }
