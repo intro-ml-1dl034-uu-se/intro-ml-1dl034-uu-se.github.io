@@ -113,8 +113,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Introduction to Machine Learning 1DL034",
-    "content": "Assignment This course has four theoretical and four practical assignments that are Python notebooks that you must complete. The practical notebooks introduce you to tools such as pandas, NumPy and scikit-learn. The theoretical notebooks help you to deepen you knowledge of some of the topics covered in the course.\nThe assignments are available publicly on github.\nProject The project will be hosted on kaggle and will only available to students registered on the course. All information about the project can be found on studium",
-    "description": "Assignment This course has four theoretical and four practical assignments that are Python notebooks that you must complete. The practical notebooks introduce you to tools such as pandas, NumPy and scikit-learn. The theoretical notebooks help you to deepen you knowledge of some of the topics covered in the course.\nThe assignments are available publicly on github.\nProject The project will be hosted on kaggle and will only available to students registered on the course. All information about the project can be found on studium",
+    "content": "Assignment This course has four theoretical and four practical assignments that are Python notebooks that you must complete. The practical notebooks introduce you to tools such as pandas, NumPy and scikit-learn. The theoretical notebooks help you to deepen you knowledge of some of the topics covered in the course.\nThe assignments will be available on Github soon.\nProject The project will be hosted on kaggle and will only available to students registered on the course. All information about the project can be found on studium.",
+    "description": "Assignment This course has four theoretical and four practical assignments that are Python notebooks that you must complete. The practical notebooks introduce you to tools such as pandas, NumPy and scikit-learn. The theoretical notebooks help you to deepen you knowledge of some of the topics covered in the course.\nThe assignments will be available on Github soon.\nProject The project will be hosted on kaggle and will only available to students registered on the course. All information about the project can be found on studium.",
     "tags": [],
     "title": "Information on the Assignments",
     "uri": "/labs/index.html"
@@ -158,6 +158,14 @@ var relearn_searchindex = [
     "tags": [],
     "title": "Using Anaconda with Windows.",
     "uri": "/resources/anaconda_instructions/index.html"
+  },
+  {
+    "breadcrumb": "Introduction to Machine Learning 1DL034",
+    "content": "The exam is a closed book written exam. The exam has two parts:\nA multiple choice section, normally of 20 questions. You have to get 80% on this part to get a 3. A second part of harder questions that require more in depth knowledge. This part of the exam is for students aiming for a 4 or a 5. Some hold exams can be found here. There are no specimen answer. If you send me your answers, then I will tell you what mark you would get, and how to improve the answer if needed.",
+    "description": "The exam is a closed book written exam. The exam has two parts:\nA multiple choice section, normally of 20 questions. You have to get 80% on this part to get a 3. A second part of harder questions that require more in depth knowledge. This part of the exam is for students aiming for a 4 or a 5. Some hold exams can be found here. There are no specimen answer. If you send me your answers, then I will tell you what mark you would get, and how to improve the answer if needed.",
+    "tags": [],
+    "title": "Exam",
+    "uri": "/exam/index.html"
   },
   {
     "breadcrumb": "Introduction to Machine Learning 1DL034",
